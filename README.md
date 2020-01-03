@@ -1,2 +1,2 @@
 # HiddenVM
-HiddenVM: Use any desktop OS while leaving no trace.
+HiddenVM: Use any desktop OS without leaving a trace.
