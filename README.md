@@ -6,7 +6,7 @@ Imagine you're entering a country at the airport. The border agents seize your l
 
 Whether you use Windows, macOS or Linux, now there's a tech solution for true privacy: **HiddenVM**.
 
-**HiddenVM** is a simple, one-click, free and open-source program that allows you to run Oracle's open-source [VirtualBox software](https://virtualbox.org) on the [Tails operating system](https://tails.boum.org).
+**HiddenVM** is a simple, one-click, free and open-source Linux application that allows you to run Oracle's open-source [VirtualBox software](https://virtualbox.org) on the [Tails operating system](https://tails.boum.org).
 
 This means you can run almost any OS as a VM inside the most anti-forensic computing environment in the world. Works where Tails does.
 
