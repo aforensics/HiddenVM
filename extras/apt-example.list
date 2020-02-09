@@ -1,0 +1,7 @@
+# Extra apt sources go here. This is for advanced users only.
+# See /etc/apt/sources.list.d/ for examples.
+
+# non-free sources
+#deb tor+http://ftp.us.debian.org/debian/ buster non-free
+#deb tor+http://ftp.us.debian.org/debian/ buster-backports non-free
+#deb tor+http://security.debian.org/ buster/updates non-free

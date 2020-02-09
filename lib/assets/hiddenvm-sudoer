@@ -1,0 +1,5 @@
+# 2 hr cache
+Defaults:amnesia timestamp_timeout=120
+
+# For 'sudo -u clearnet virtualbox'
+amnesia ALL=(clearnet) NOPASSWD: /usr/bin/virtualbox

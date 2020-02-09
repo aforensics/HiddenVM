@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=HiddenVM Clearnet VirtualBox
+Comment=Runs VirtualBox for HiddenVM as the clearnet user
+Exec=/home/amnesia/.clearnet-vbox/clearnet-vbox.sh
+Icon=virtualbox
+Terminal=false
+Type=Application
+Categories=System

@@ -1,0 +1,105 @@
+#!/bin/bash
+
+# Copyright (C) 2020 HiddenVM <https://github.com/aforensics/HiddenVM>
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+set -m # Enable background job control (for fg to work)
+
+# This is the dir where we were launched from
+LAUNCH_DIR=$(pwd)
+# This is where we are within the AppImage mount
+HERE="$(dirname "$(readlink -f "${0}")")"
+
+LOG_FILE="${LAUNCH_DIR}/HiddenVM.log"
+
+# We need common functions and CLEARNET_VBOX_ENV_FILE
+. "${HERE}/lib/common.sh"
+
+log "Launch dir: ${LAUNCH_DIR}"
+log "HERE: ${HERE}"
+
+# If we have a local env file (relative to LAUNCH_DIR),
+# save its path so we can pass it to bootstrap.sh
+ENV_FILE="${LAUNCH_DIR}/HiddenVM/env"
+ENV_FILE_ARG=
+if [ -f "${ENV_FILE}" ]; then
+    log "Found local env file: ${ENV_FILE}"
+    ENV_FILE_ARG=${ENV_FILE}
+else
+    log "Did not find local env file in ${LAUNCH_DIR}/HiddenVM/"
+fi
+
+# gnome-terminal uses a client-server architecture, so a server is reused and
+# new windows are created, rather than separate processes. This doesn't work
+# for us, because we need to make sure AppRun waits for bootstrap to complete
+# before terminating. Otherwise the AppImage will be unmounted before bootstrap
+# finishes. So the solution is to start a custom terminal server and open a
+# client terminal on it.
+
+SERVER_APP_ID="hidden.vm.id"
+/usr/lib/gnome-terminal/gnome-terminal-server --app-id "${SERVER_APP_ID}" &
+
+# Try to launch a terminal on the server. We have 10s before the server goes
+# away! The server may take some time to come up, so we have to retry on error.
+# gnome-terminal always returns 0, so we need to check the output for Error.
+while
+    gnome-terminal --app-id "${SERVER_APP_ID}" --working-directory "${HERE}" -- \
+        bash -c "./launch-log-progress.sh \"${ENV_FILE_ARG}\" \"${LOG_FILE}\"" 2>&1 | \
+        grep Error
+do
+    error "gnome-terminal-server '${SERVER_APP_ID}' is not ready, trying again..."
+    sleep 1
+done
+
+# Re-attach to the gnome-terminal server. The server
+# will terminate when the terminal is closed)
+fg
+
+log "bootstrap gnome-terminal was closed"
+
+# If bootstrap.sh successfully installed the env file in
+# CLEARNET_VBOX_LIB_HOME, source it to get the HVM_HOME
+if [ -f "${CLEARNET_VBOX_ENV_FILE}" ]; then
+    . "${CLEARNET_VBOX_ENV_FILE}"
+    log "HVM_HOME is: ${HVM_HOME}"
+
+    # Make sure the logs dir exists in HVM_HOME
+    LOG_DIR="${HVM_HOME}/logs"
+    mkdir -p "${LOG_DIR}"
+
+    # If we're running from the HVM_HOME's parent dir (where the AppImage lives),
+    # delete old app images and move the log file.
+    HVM_HOME_PARENT_DIR="${HVM_HOME}/../"
+    if [ "${LAUNCH_DIR}" -ef "${HVM_HOME_PARENT_DIR}" ]; then
+        shopt -s extglob
+        VERSION_EXCLUSION="!(${HVM_VERSION})"
+        rm -f "${HVM_HOME_PARENT_DIR}"/HiddenVM-${VERSION_EXCLUSION}-*.AppImage
+        shopt -u extglob
+
+        log "Moving log file to ${LOG_DIR}"
+        mv "${LOG_FILE}" "${LOG_DIR}"
+    else
+        # Otherwise remove the old AppImage and copy the new AppImage + log file
+        rm -f "${HVM_HOME_PARENT_DIR}"/HiddenVM*.AppImage
+        APP_IMAGE_FILE="${LAUNCH_DIR}/HiddenVM-${HVM_VERSION}-x86_64.AppImage"
+        if [ -f "${APP_IMAGE_FILE}" ]; then
+            log "Copying AppImage file to ${HVM_HOME_PARENT_DIR}"
+            cp "${APP_IMAGE_FILE}" "${HVM_HOME_PARENT_DIR}"
+        fi
+        log "Copying log file to ${LOG_DIR}"
+        cp "${LOG_FILE}" "${LOG_DIR}"
+    fi
+fi
