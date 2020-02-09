@@ -4,7 +4,7 @@
 
 Imagine you're entering a country at the airport. The border agents seize your laptop and force you to unlock it, so that they can violate your privacy, treat you like a criminal, and [insult your humanity](https://www.reddit.com/r/privacy/comments/epblc8/australian_border_employee_hands_phone_back_to/). Is that the world we want to live in?
 
-Whether you use Windows, macOS or Linux, there's now a tech solution for true privacy: **HiddenVM**.
+Whether you use Windows, macOS or Linux, now there's a tech solution for true privacy: **HiddenVM**.
 
 **HiddenVM** is a simple, one-click, free and open-source program that allows you to run Oracle's open-source [VirtualBox software](https://virtualbox.org) on the [Tails operating system](https://tails.boum.org).
 
