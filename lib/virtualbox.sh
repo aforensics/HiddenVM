@@ -69,6 +69,12 @@ install_vbox_ext_pack() {
     # Only download if we don't already have the file cached
     if [ ! -f "${VBOX_EXT_PACK_FILE_LOCAL}" ]; then
         log "Downloading VirtualBox Extension Pack v${VBOX_VERSION}, prog-id=18"
+
+        if ! is_tor_ready; then
+            log "Tor is not ready, skipping VirtualBox Extension Pack download and install"
+            return
+        fi
+
         curl ${VBOX_EXT_PACK_URL} --socks5 localhost:9150 -o "${VBOX_EXT_PACK_FILE_LOCAL}"
         log "Done downloading VirtualBox Extension Pack v${VBOX_VERSION}"
     fi

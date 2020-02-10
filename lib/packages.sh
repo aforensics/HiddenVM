@@ -189,6 +189,11 @@ should_prune_package_cache() {
 # $1: Options
 # $2: 'Last apt update date' file to use
 run_apt_update() {
+    if ! is_tor_ready; then
+        log "Tor is not ready, skipping 'apt-get update'"
+        return
+    fi
+
     local APT_OPTS="${1}"
     local LAST_APT_UPDATE_DATE_FILE="${2}"
 

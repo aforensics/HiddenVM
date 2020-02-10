@@ -113,3 +113,7 @@ is_tails_version_supported() {
 
     return 1
 }
+
+is_tor_ready() {
+    /bin/systemctl --quiet is-active tails-tor-has-bootstrapped.target
+}
