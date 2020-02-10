@@ -83,6 +83,15 @@ Using VMs in Tails uses a lot of RAM because Tails already runs entirely in RAM.
 Every 7 days, if you're connected to the Internet HVM will do an `apt-get` update to check repositories like VirtualBox and will download new updates if available. Sometimes you can get connected to a very slow Tor circuit in Tails. Close off HVM's Terminal window and restart Tails to hopefully be connected to a faster circuit.
 
 
+### Can I use HVM offline?
+
+Yes. In fact it may be possible to use HVM offline for extended periods of even months at a time, if you never update Tails or HiddenVM during such periods.
+
+We can't guarantee this, but limited testing by the team has confirmed this being possible for at least a month.
+
+As soon as you connect to the Internet, HVM may update your cached software and you may have to update to the latest HVM on our Github as well as Tails itself, but after all software is matched as verified by HVM, you may be able to use HVM offline for a long period once more.
+
+
 ### HVM 'Extras' and 'Dotfiles' feature
 
 HVM allows you to fully automate the customization of your Tails environment at every launch by performing system settings modifications or loading additional software including persistent config files for them.
@@ -165,7 +174,7 @@ In the end, the factor that controls your safely more than anything else is what
 As a result, we strongly suggest minimal usage of regular Internet activity in Tails when also using HVM. The attack surface is already wide in Tails, and HVM makes that a little wider. To do significant Tor Browser or other Internet-connected activity in the Tails host, boot into a Tails session without launching HVM.
 
 
-### Is HVM a slap in the face to the entire idea of Tails?
+### Is HVM a slap in the face to the very idea of Tails?
 
 No. HiddenVM is just an innovative and unexpected use of Tails that no one previously thought possible.
 
