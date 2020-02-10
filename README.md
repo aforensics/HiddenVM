@@ -44,9 +44,9 @@ Now you can find out. True privacy in computing, finally here.
 
 - Run `mkdir inspect && sudo mount HiddenVM-*-x86_64.AppImage inspect -o offset=188456`
 
-- Every file in the mounted folder can be inspected with a text editor. To search for IP addresses or web domains HiddenVM could try to phone home to, use *Searchmonkey* (`sudo apt install searchmonkey`) and recursively search for `\.\S` in the mounted folder's files.
+- Every file in the mounted folder can be inspected with a text editor. To search for IP addresses or web domains HiddenVM could try to phone home to, use [Searchmonkey](http://searchmonkey.embeddediq.com) (`sudo apt install searchmonkey`) and recursively search for `\.\S` in the mounted folder's files.
 
-- Once you trust the current version of HVM, when new releases arrive you can track code changes by using *Meld* (`sudo apt install meld`). Drag and drop the old and new folders together into *Meld*, and any code differences will be highlighted.
+- Once you trust the current version of HVM, when new releases arrive you can track code changes by using [Meld](https://meldmerge.org) (`sudo apt install meld`). Drag and drop the old and new folders together into *Meld*, and any code differences will be highlighted.
 
 ### Or generate your own AppImage from our code after inspecting it:
 
