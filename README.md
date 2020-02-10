@@ -89,7 +89,7 @@ Yes. In fact it may be possible to use HVM offline for extended periods of even 
 
 We can't guarantee this, but limited testing by the team has confirmed this being possible for at least a month.
 
-As soon as you connect to the Internet, HVM may update your cached software and you may have to update to the latest HVM on our Github as well as Tails itself, but after all software is matched as verified by HVM, you may be able to use HVM offline for a long period once more.
+As soon as you connect to the Internet, HVM may upgrade its cached software and you may have to upgrade to the latest HVM on our Github as well as Tails itself, but after all software is matched as verified by HVM, it may be possible to use HVM offline for a long period once more.
 
 
 ### HVM 'Extras' and 'Dotfiles' feature
