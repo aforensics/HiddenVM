@@ -42,7 +42,7 @@ Now you can find out. True privacy in computing, finally here.
 
 - Open a Terminal and `cd` to the folder containing our .AppImage
 
-- Run `mkdir inspect && sudo mount HiddenVM-*-x86_64.AppImage inspect -o offset=188392`
+- Run `mkdir inspect && sudo mount HiddenVM-*-x86_64.AppImage inspect -o offset=188456`
 
 - Every file in the mounted folder can be inspected with a text editor. To search for IP addresses or web domains HiddenVM could try to phone home to, use *Searchmonkey* (`sudo apt install searchmonkey`) and recursively search for `\.\S` in the mounted folder's files.
 
