@@ -176,3 +176,13 @@ We take user privacy, security, and anonymity very seriously and we will impleme
 Furthermore, HVM may attract more users to the Tails user base, which will enlarge its anonymity set, which is a needed thing for the Tails community. And although we don't use the Tails Tor environment for our main computing and we prefer HVM Whonix instead, we are still promoting and making use of Tails as a fundamental part of the process to download and set up a HiddenVM, where as the host OS it is an incredibly safe environment to do such a thing.
 
 As such, we are normal Tails users and advocates just like anyone else.
+
+### Limitation of efficacy
+
+Important: Your data is not 'private' or 'hidden' while you are using the computer with your VeraCrypt volume unlocked. It only applies to when your computer is turned off or turned on and the private data in your VeraCrypt volume is not unlocked.
+
+'Deniability' is very complex, and there are many threat models and situations. There is no one-size-fits-all method for effective deniability. How 'normal' (i.e. 'plausible') your computer or data must convincingly appear to be, when turned off or forced to be turned on, depends on your circumstances.
+
+Our claim to effective deniability is a broad one and may not apply to your particular scenario. We may not be able to cater to your particular scenario but we are very interested in studying it and our Wiki could be a place to document some deniability scenarios and solutions in the context of HiddenVM.
+
+Other limitations to your efficacy [stated by the Tails project](https://tails.boum.org/doc/about/warning/index.en.html) may apply, please read them.
