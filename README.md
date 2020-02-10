@@ -4,23 +4,22 @@
 
 Imagine you're entering a country at the airport. The border agents seize your laptop and force you to unlock it, so that they can violate your privacy, treat you like a criminal, and [insult your humanity](https://www.reddit.com/r/privacy/comments/epblc8/australian_border_employee_hands_phone_back_to/). Is that the world we want to live in?
 
-Whether you use Windows, macOS or Linux, there's now a tech solution for true privacy: **HiddenVM**.
+Whether you use Windows, macOS or Linux, now there's a tech solution for true privacy: **HiddenVM**.
 
-**HiddenVM** is a simple, one-click, free and open-source program that allows you to run Oracle's open-source [VirtualBox software](https://virtualbox.org) on the [Tails operating system](https://tails.boum.org).
+**HiddenVM** is a simple, one-click, free and open-source Linux application that allows you to run Oracle's open-source [VirtualBox software](https://virtualbox.org) on the [Tails operating system](https://tails.boum.org).
 
 This means you can run almost any OS as a VM inside the most anti-forensic computing environment in the world. Works where Tails does.
 
-The VMs even use your full-speed non-Tor Internet by default, while leaving the outer Tails' Tor connection undisturbed.
+The VMs even use your full-speed non-Tor Internet by default, while leaving the Tails' outer Tor connection undisturbed.
 
-To ensure anti-forensic deniability of your VMs you can place your persistent HiddenVM installation - containing all VirtualBox files, the VMs, and HiddenVM itself - in a [hidden VeraCrypt volume](https://www.veracrypt.fr/en/Hidden%20Volume.html) and only mount it when using the amnesic Tails.
+To ensure anti-forensic deniability of your VMs, you can place your persistent HiddenVM installation - containing all VirtualBox files, the VMs, and HiddenVM itself - in a [hidden VeraCrypt volume](https://www.veracrypt.fr/en/Hidden%20Volume.html) and only mount it when using the amnesic Tails.
 
 When your computer is turned off, all anyone can plausibly see is a blank Tails USB and a hard drive full of meaningless data or a bootable decoy OS partition that you can create.
 
-How does it feel to have no forensic trace of your entire operating system - whether it be Windows, macOS or Linux - ever touch your hard drive?
+How does it feel to have no forensic trace of your entire operating system - whether it's Windows, macOS or Linux - ever touch your hard drive?
 
-Now you can find out.
+Now you can find out. True privacy in computing, finally here.
 
-True privacy in computing, finally here.
 ## Installation and usage
 
 - Boot into Tails on your computer and set an [administration password](https://tails.boum.org/doc/first_steps/startup_options/administration_password/index.en.html) for your session
@@ -37,7 +36,7 @@ True privacy in computing, finally here.
 
 - After first-time install you can use HiddenVM offline and each launch takes around 2 minutes
 
-## How can I trust the HVM AppImage file?
+## How can I trust the Hidden AppImage file?
 
 **You don't have to. Inspect our code:**
 
