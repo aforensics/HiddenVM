@@ -10,7 +10,7 @@ Whether you use Windows, macOS or Linux, now there's a tech solution for real pr
 
 This means you can run almost any OS in a VM inside the most anti-forensic computing environment in the world. Works where Tails does.
 
-The VM even uses your full-speed pre-Tor Internet by default, while leaving the Tails outer Tor connection undisturbed.
+The VM even uses your full-speed pre-Tor Internet by default, while leaving the outer Tor connection in Tails undisturbed.
 
 To ensure anti-forensic deniability of your VMs, you can place your persistent HiddenVM installation - containing all VirtualBox files, the VMs, and HiddenVM itself - in a [hidden VeraCrypt volume](https://www.veracrypt.fr/en/Hidden%20Volume.html), and only mount it when using the amnesic Tails.
 
@@ -59,6 +59,14 @@ Now you can find out. True privacy in computing, finally here.
 Find your own AppImage in `target` subdir
 
 ## FAQs / Warnings
+
+### What type of person might use HiddenVM?
+
+Like Tor and Tails, HiddenVM is intended for a wide range of use cases around the world. In our digital age of increasing surveillance and control, we need tools to keep true privacy and freedom alive.
+
+If you are a political dissident in a country with totalitarian law enforcement, for someone in your situation there has not yet been a robust tech solution to truly hide and protect your data in a convenient way. Our tool may help you.
+
+We are aligned with Tails and Tor projects in our intentions and promotion of how our software is to be and can be used.
 
 ### What guest operating systems work with HiddenVM?
 
@@ -115,7 +123,7 @@ Tails' [Additional Software](https://tails.boum.org/doc/first_steps/additional_s
 
 This is the first time you can emulate VeraCrypt's [Hidden OS](https://www.veracrypt.fr/en/VeraCrypt%20Hidden%20Operating%20System.html) feature for Windows, but now for any OS (and also without its plausible deniability being [broken by security researchers](https://www.researchgate.net/publication/318155607_Defeating_Plausible_Deniability_of_VeraCrypt_Hidden_Operating_Systems)). 
 
-Due to using LUKS encryption, Tails' persistent volume feature currently offers no anti-forensics for the data on that area of your Tails stick, and is therefore not airport border inspection proof. If that ever changes we would prefer to integrate HVM more elegantly into Tails' existing infrastructure and we appreciate the amazing work that Tails devs continue to do.
+Due to using LUKS encryption, the Tails persistent volume feature currently offers no anti-forensics for the data in that area of your Tails stick, and is therefore not airport border inspection proof. If that ever changes we would prefer to integrate HVM more elegantly into Tails' existing infrastructure and we appreciate the amazing work that Tails devs continue to do.
 
 
 ### Can I install the Extension Pack in HVM's VirtualBox?
@@ -155,8 +163,6 @@ We also increase the sudo timeout to improve the user experience to only require
 In the end, the factor that controls your safely more than anything else is what you choose to do in Tails. We and the Tails project can only help you so much.
 
 As a result, we strongly suggest minimal usage of regular Internet activity in Tails when also using HVM. The attack surface is already wide in Tails, and HVM makes that a little wider. To do significant Tor Browser or other Internet-connected activity in the Tails host, boot into a Tails session without launching HVM.
-
-We also encourage you to read Tails' long [Warnings](https://tails.boum.org/doc/about/warning/index.en.html) page.
 
 
 ### Is HVM a slap in the face to the entire idea of Tails?
