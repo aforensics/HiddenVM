@@ -4,15 +4,15 @@
 
 Imagine you're entering a country at the airport. The border agents seize your laptop and force you to unlock it, so that they can violate your privacy, treat you like a criminal, and [insult your humanity](https://www.reddit.com/r/privacy/comments/epblc8/australian_border_employee_hands_phone_back_to/). Is that the world we want to live in?
 
-Whether you use Windows, macOS or Linux, now there's a tech solution for true privacy: **HiddenVM**.
+Whether you use Windows, macOS or Linux, now there's a tech solution for real privacy: **HiddenVM**.
 
 **HiddenVM** is a simple, one-click, free and open-source Linux application that allows you to run Oracle's open-source [VirtualBox software](https://virtualbox.org) on the [Tails operating system](https://tails.boum.org).
 
-This means you can run almost any OS as a VM inside the most anti-forensic computing environment in the world. Works where Tails does.
+This means you can run almost any OS in a VM inside the most anti-forensic computing environment in the world. Works where Tails does.
 
-The VMs even use your full-speed non-Tor Internet by default, while leaving the Tails' outer Tor connection undisturbed.
+The VM even uses your full-speed pre-Tor Internet by default, while leaving the Tails outer Tor connection undisturbed.
 
-To ensure anti-forensic deniability of your VMs, you can place your persistent HiddenVM installation - containing all VirtualBox files, the VMs, and HiddenVM itself - in a [hidden VeraCrypt volume](https://www.veracrypt.fr/en/Hidden%20Volume.html) and only mount it when using the amnesic Tails.
+To ensure anti-forensic deniability of your VMs, you can place your persistent HiddenVM installation - containing all VirtualBox files, the VMs, and HiddenVM itself - in a [hidden VeraCrypt volume](https://www.veracrypt.fr/en/Hidden%20Volume.html), and only mount it when using the amnesic Tails.
 
 When your computer is turned off, all anyone can plausibly see is a blank Tails USB and a hard drive full of meaningless data or a bootable decoy OS partition that you can create.
 
