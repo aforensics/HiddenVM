@@ -195,3 +195,11 @@ Important: Your data is not 'private' or 'hidden' while you are using the comput
 Our claim to effective deniability is a broad one and may not apply to your particular scenario. We may not be able to cater to your particular scenario but we are very interested in studying it and our Wiki could be a place to document some deniability scenarios and solutions in the context of HiddenVM.
 
 Other limitations to your efficacy [stated by the Tails project](https://tails.boum.org/doc/about/warning/index.en.html) may apply, please read them.
+
+## Disclaimer
+
+Despite our grand claims at the top of this README, any software project claiming increased security, privacy or anonymity can never provide a guarantee for such things, and we are no different.
+
+As our license states, we are not liable to you for any damages as a result of using our software. Similarly, any claims by our project or its representatives are personal opinions and are not legal or computer security advice.
+
+The HiddenVM project provides no guarantee of any security, privacy or anonymity as a result of you using our software. You use our software at your own risk, and whether or how you use it is at your own decision.
