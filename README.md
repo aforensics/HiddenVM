@@ -76,9 +76,13 @@ So far we have successfully tested Windows 10, macOS Mojave, Linux Mint, Ubuntu,
 
 Using VMs in Tails uses a lot of RAM, because Tails already runs entirely in RAM. We recommended at least 16 GB in your machine, but your mileage may vary.
 
-### Why is HVM taking more than the normal 2 minutes to launch?
+### Why is HiddenVM taking more than the normal 2 minutes to launch?
 
-Every 7 days, if you're connected to the Internet HiddenVM will do an `apt-get` update to check repositories like VirtualBox and will download new updates if available. Sometimes you can get connected to a very slow Tor circuit in Tails. Close off HiddenVM's Terminal window and restart Tails to hopefully get connected to a faster circuit.
+The first time you run HiddenVM, the install may take anywhere from several minutes to more than half an hour because it needs to download all the necessary software for the first time. After that it caches everything offline for a much quicker usual 2-minute launch time.
+
+Every 7 days, if you're connected to the Internet HiddenVM will do an `apt-get` update to check repositories like VirtualBox, and will download new updates if available. Sometimes you can get connected to a very slow Tor circuit in Tails. Close off HiddenVM's Terminal window and restart Tails to hopefully get connected to a faster circuit.
+
+Every time you do a Tails and HiddenVM upgrade, the first time after that will almost always need to install new package versions, taking around 5 minutes or longer. Then it returns to the usual 2 minutes.
 
 ### Can I use HiddenVM offline?
 
