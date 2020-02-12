@@ -28,7 +28,7 @@ Now you can find out. True privacy in computing, finally here.
 
 - Create and mount a deniable, secure storage environment on internal or external media such as a [VeraCrypt](veracrypt.fr/en) volume.
 
-- Download the ZIP from our [latest release](https://github.com/aforensics/HiddenVM/releases) and extract the archive.
+- **[Download our latest release ZIP](https://github.com/aforensics/HiddenVM/releases)** and extract the archive.
 
 - Run our AppImage file from the file browser.
 
