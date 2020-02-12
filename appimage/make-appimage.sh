@@ -68,10 +68,10 @@ if [ "${1-}" != "skipzip" ]; then
         echo "zip needs to be installed"
         sudo apt-get -y install zip
     fi
-    zip "${APPIMG_FILE}.zip" "${APPIMG_FILE}" LICENSE
+    zip "${APPIMG_NAME}.zip" "${APPIMG_FILE}" LICENSE
 fi
 
 # Generate md5 sums
-md5sum "${APPIMG_FILE}"* > "${APPIMG_NAME}.md5"
+md5sum "${APPIMG_NAME}"* > "${APPIMG_NAME}.md5"
 
 popd
