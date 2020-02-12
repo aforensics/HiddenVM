@@ -163,11 +163,11 @@ In the end, the factor that controls your safely more than anything else is what
 
 As a result, we strongly suggest minimal usage of regular Tails Internet activity when also using HVM. The attack surface is already wide in Tails and HVM makes that a little wider. To do significant Tor Browser or other Internet-connected activity in the Tails host, boot into a new Tails session without launching HVM.
 
-### Is HiddenVM a slap in the face to the very idea of Tails?
+### Is HiddenVM a slap in the face to the whole idea of Tails?
 
 No. HiddenVM is just an innovative and unexpected use of Tails that no one previously thought was possible.
 
-Our project actually pays the highest compliment to Tails. We're promoting Tails as an entire new platform and ecosystem for aforensic computing, and do things that Tails project never dreamed of. We trust and humbly rely on Tails, Debian, Tor and Linux as upstream projects, and we feel an extreme sense of responsibility around what we're doing.
+Our project actually pays the highest compliment to Tails. We're promoting Tails as an entire new platform and ecosystem for aforensic computing, in a much wider way than before. We trust and humbly rely on Tails, Debian, Tor and Linux as upstream projects, and we feel an extreme sense of responsibility around what we're doing.
 
 We take user privacy, security, and anonymity very seriously and will implement updates to improve the default safety for HiddenVM users over time. For now, we invite you to inspect our code and offer suggestions and contributions that improve security without removing functionality or features.
 
