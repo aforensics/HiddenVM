@@ -33,7 +33,7 @@ while [ -n "${1}" ]; do
         *)
             echo "Invalid option: ${1}"
             echo "Available HiddenVM options:"
-            echo "  -version"
+            echo -e "\t-version\tPrints the HiddenVM version"
             exit
             ;;
     esac

@@ -19,6 +19,24 @@
 set -e
 set -u
 
+# Default ghr option to '-soft' (fail if the tag already exists, to avoid messing up an existing release)
+GHR_OPT="-soft"
+while [ -n "${1-}" ]; do
+    case "${1-}" in
+        -recreate)
+            GHR_OPT="-recreate"
+            ;;
+
+        *)
+            echo "Invalid option: ${1-}"
+            echo "Available options:"
+            echo -e "\t-recreate\tRecreate the release if the tag already exists"
+            exit
+            ;;
+    esac
+    shift
+done
+
 ./make-appimage.sh
 
 HVM_VERSION=$(./target/HiddenVM-*-x86_64.AppImage -version)
@@ -36,9 +54,6 @@ echo "Publishing release v${HVM_VERSION} to github"
 # Run ghr from repo root. Note that you must have an API token configured.
 pushd ../
 
-# Use -soft to fail if the tag already exists, to avoid messing up an existing release
-# Note: Change to use -delete to completely replace the release if it already exists
-$(go env GOPATH)/bin/ghr -soft v${HVM_VERSION} appimage/target/release
-#$(go env GOPATH)/bin/ghr -delete v${HVM_VERSION} appimage/target/release
+$(go env GOPATH)/bin/ghr ${GHR_OPT} "v${HVM_VERSION}" appimage/target/release
 
 popd

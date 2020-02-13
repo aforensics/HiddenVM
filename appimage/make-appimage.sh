@@ -63,13 +63,11 @@ cp ../LICENSE "${TARGET_DIR}"
 pushd "${TARGET_DIR}"
 
 # Zip up the AppImage and LICENSE files
-if [ "${1-}" != "skipzip" ]; then
-    if ! command -v zip; then
-        echo "Installing 'zip' ..."
-        sudo apt-get -y install zip
-    fi
-    zip "${APPIMG_NAME}.zip" "${APPIMG_FILE}" LICENSE
+if ! command -v zip; then
+    echo "Installing 'zip' ..."
+    sudo apt-get -y install zip
 fi
+zip "${APPIMG_NAME}.zip" "${APPIMG_FILE}" LICENSE
 
 # Generate md5 sums
 md5sum "${APPIMG_NAME}"* > "${APPIMG_NAME}.md5"
