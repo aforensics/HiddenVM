@@ -23,6 +23,23 @@ LAUNCH_DIR=$(pwd)
 # This is where we are within the AppImage mount
 HERE="$(dirname "$(readlink -f "${0}")")"
 
+while [ -n "${1}" ]; do
+    case "${1}" in
+        -version)
+            cat "${HERE}/HVM_VERSION"
+            exit
+            ;;
+
+        *)
+            echo "Invalid option: ${1}"
+            echo "Available HiddenVM options:"
+            echo "  -version"
+            exit
+            ;;
+    esac
+    shift
+done
+
 LOG_FILE="${LAUNCH_DIR}/HiddenVM.log"
 
 # We need common functions and CLEARNET_VBOX_ENV_FILE
