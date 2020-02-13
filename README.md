@@ -28,7 +28,7 @@ Now you can find out. True privacy in computing, finally here.
 
 - Create and mount a deniable, secure storage environment on internal or external media such as a [VeraCrypt](veracrypt.fr/en) volume.
 
-- Download the ZIP from our [latest release](https://github.com/aforensics/HiddenVM/releases) and extract the archive.
+- **[Download our latest release ZIP](https://github.com/aforensics/HiddenVM/releases)** and extract the archive.
 
 - Run our AppImage file from the file browser.
 
@@ -76,9 +76,13 @@ So far we have successfully tested Windows 10, macOS Mojave, Linux Mint, Ubuntu,
 
 Using VMs in Tails uses a lot of RAM, because Tails already runs entirely in RAM. We recommended at least 16 GB in your machine, but your mileage may vary.
 
-### Why is HVM taking more than the normal 2 minutes to launch?
+### Why is HiddenVM taking more than the normal 2 minutes to launch?
 
-Every 7 days, if you're connected to the Internet HiddenVM will do an `apt-get` update to check repositories like VirtualBox and will download new updates if available. Sometimes you can get connected to a very slow Tor circuit in Tails. Close off HiddenVM's Terminal window and restart Tails to hopefully get connected to a faster circuit.
+The first time you run HiddenVM, the install may take anywhere from several minutes to more than half an hour because it needs to download all the necessary software for the first time. After that it caches everything offline for a much quicker usual 2-minute launch time.
+
+Every 7 days, if you're connected to the Internet HiddenVM will do an `apt-get` update to check repositories like VirtualBox, and will download new updates if available. Sometimes you can get connected to a very slow Tor circuit in Tails. Close off HiddenVM's Terminal window and restart Tails to hopefully get connected to a faster circuit.
+
+Every time you do a Tails and HiddenVM upgrade, the first time after that will almost always need to install new package versions, taking around 5 minutes or longer. Then it returns to the usual 2 minutes.
 
 ### Can I use HiddenVM offline?
 
@@ -163,11 +167,11 @@ In the end, the factor that controls your safely more than anything else is what
 
 As a result, we strongly suggest minimal usage of regular Tails Internet activity when also using HVM. The attack surface is already wide in Tails and HVM makes that a little wider. To do significant Tor Browser or other Internet-connected activity in the Tails host, boot into a new Tails session without launching HVM.
 
-### Is HiddenVM a slap in the face to the very idea of Tails?
+### Is HiddenVM a slap in the face to the whole idea of Tails?
 
 No. HiddenVM is just an innovative and unexpected use of Tails that no one previously thought was possible.
 
-Our project actually pays the highest compliment to Tails. We're promoting Tails as an entire new platform and ecosystem for aforensic computing, and do things that Tails project never dreamed of. We trust and humbly rely on Tails, Debian, Tor and Linux as upstream projects, and we feel an extreme sense of responsibility around what we're doing.
+Our project actually pays the highest compliment to Tails. We're promoting Tails as an entire new platform and ecosystem for aforensic computing, in a much wider way than before. We trust and humbly rely on Tails, Debian, Tor and Linux as upstream projects, and we feel an extreme sense of responsibility around what we're doing.
 
 We take user privacy, security, and anonymity very seriously and will implement updates to improve the default safety for HiddenVM users over time. For now, we invite you to inspect our code and offer suggestions and contributions that improve security without removing functionality or features.
 
