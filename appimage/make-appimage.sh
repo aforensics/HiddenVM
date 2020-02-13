@@ -24,7 +24,7 @@ TARGET_DIR="./target"
 
 # Blow away and recreate the AppImage root and target directories
 rm -rf "${ROOT_DIR}" "${TARGET_DIR}"
-mkdir -p "${ROOT_DIR}" "${TARGET_DIR}"
+mkdir -p "${ROOT_DIR}" "${TARGET_DIR}/release"
 
 # Copy the files we want
 cp AppRun "${ROOT_DIR}/"
@@ -65,7 +65,7 @@ pushd "${TARGET_DIR}"
 # Zip up the AppImage and LICENSE files
 if [ "${1-}" != "skipzip" ]; then
     if ! command -v zip; then
-        echo "zip needs to be installed"
+        echo "Installing 'zip' ..."
         sudo apt-get -y install zip
     fi
     zip "${APPIMG_NAME}.zip" "${APPIMG_FILE}" LICENSE
@@ -74,4 +74,5 @@ fi
 # Generate md5 sums
 md5sum "${APPIMG_NAME}"* > "${APPIMG_NAME}.md5"
 
+mv "${APPIMG_NAME}.zip" "${APPIMG_NAME}.md5" release/
 popd
