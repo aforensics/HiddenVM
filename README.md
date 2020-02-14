@@ -24,7 +24,7 @@ Now you can find out. True privacy in computing, finally here.
 
 - Boot into [Tails](https://tails.boum.org) on your computer and set an [administration password](https://tails.boum.org/doc/first_steps/startup_options/administration_password/index.en.html) for your session.
 
-- [NEVER use](#why-shouldnt-i-use-tails-official-persistent-volume-feature) Tails' [persistent volume feature](https://tails.boum.org/doc/first_steps/persistence/index.en.html).
+- [Do NOT use](#why-shouldnt-i-use-tails-official-persistent-volume-feature) Tails' [persistent volume feature](https://tails.boum.org/doc/first_steps/persistence/index.en.html).
 
 - Create and mount a deniable, secure storage environment on internal or external media such as a [VeraCrypt](https://veracrypt.fr/en) volume.
 
@@ -172,7 +172,7 @@ As a result, we strongly suggest minimal usage of regular Tails Internet activit
 
 No. HiddenVM is just an innovative and unexpected use of Tails that no one previously thought was possible.
 
-Our project actually pays the highest compliment to Tails. We're promoting Tails as an entire new platform and ecosystem for aforensic computing, in a much wider way than before. We trust and humbly rely on Tails, Debian, Tor and Linux as upstream projects, and we feel an extreme sense of responsibility around what we're doing.
+Our project actually pays the highest compliment to Tails. We're promoting Tails as an entire new platform and ecosystem for aforensic computing, in a much wider way than before. We trust and humbly rely on Tails, Tor, Debian and Linux as upstream projects, and we feel an extreme sense of responsibility around what we're doing.
 
 We take user privacy, security, and anonymity very seriously and will implement updates to improve the default safety for HiddenVM users over time. For now, we invite you to inspect our code and offer suggestions and contributions that improve security without removing functionality or features.
 
