@@ -24,7 +24,7 @@ Now you can find out. True privacy in computing, finally here.
 
 - Boot into [Tails](https://tails.boum.org) on your computer and set an [administration password](https://tails.boum.org/doc/first_steps/startup_options/administration_password/index.en.html) for your session.
 
-- Don't use the [persistent volume feature](https://tails.boum.org/doc/first_steps/persistence/index.en.html).
+- [NEVER use](#why-shouldnt-i-use-tails-official-persistent-volume-feature) Tails' [persistent volume feature](https://tails.boum.org/doc/first_steps/persistence/index.en.html).
 
 - Create and mount a deniable, secure storage environment on internal or external media such as a [VeraCrypt](https://veracrypt.fr/en) volume.
 
@@ -132,7 +132,7 @@ Tails' [Additional Software](https://tails.boum.org/doc/first_steps/additional_s
 
 More importantly, our intention is for HVM's virtual machines to be truly 'hidden', i.e. forensically undetectable. This is the first time you can emulate VeraCrypt's Windows [Hidden OS](https://www.veracrypt.fr/en/VeraCrypt%20Hidden%20Operating%20System.html) feature, except this time the plausible deniability isn't [broken by security researchers](https://www.researchgate.net/publication/318155607_Defeating_Plausible_Deniability_of_VeraCrypt_Hidden_Operating_Systems) and it's for any OS you want.
 
-Due to using LUKS encryption, Tails' persistent volume feature currently offers no anti-forensics for the data in that area of your Tails stick and is therefore not airport border inspection proof. If that ever changes, we would prefer to integrate HiddenVM more elegantly into Tails' existing infrastructure, and we appreciate the wonderful work that the Tails devs do.
+Due to using LUKS encryption, Tails' persistent volume feature currently offers no anti-forensics for the data in that area of your Tails stick and is therefore not airport border inspection proof. If that ever changes, we would prefer to integrate HiddenVM more elegantly into Tails' existing infrastructure, and we appreciate the wonderful work that Tails devs do.
 
 ### Can I install the Extension Pack in HVM's VirtualBox?
 
