@@ -124,7 +124,7 @@ Eventually we will have a Wiki page with many Extras examples. Please contribute
 
 Warning: Make sure your commands work or it may cause HiddenVM to not fully exit its Terminal or to produce errors.
 
-**Dotfiles:** Inside 'extras' is a 'dotfiles' folder. Place any files and folder structures in there and HiddenVM will recursively symlink it into the Tails session's Home folder at `/home/amnesia`. This feature is very powerful and by putting a *.config* folder structure in there you can have all additional software settings pre-loaded before they're install via Extras.
+**Dotfiles:** Inside 'extras' is a 'dotfiles' folder. Place any files and folder structures in there and HiddenVM will recursively symlink it into the Tails session's Home folder at `/home/amnesia`. This feature is very powerful and by putting a *.config* folder structure in there you can have all additional software settings pre-loaded before they're installed via Extras.
 
 ### Why shouldn't I use Tails' official persistent volume feature?
 
@@ -132,7 +132,7 @@ Tails' [Additional Software](https://tails.boum.org/doc/first_steps/additional_s
 
 More importantly, our intention is for HVM's virtual machines to be truly 'hidden', i.e. forensically undetectable. This is the first time you can emulate VeraCrypt's Windows [Hidden OS](https://www.veracrypt.fr/en/VeraCrypt%20Hidden%20Operating%20System.html) feature, except this time the plausible deniability isn't [broken by security researchers](https://www.researchgate.net/publication/318155607_Defeating_Plausible_Deniability_of_VeraCrypt_Hidden_Operating_Systems) and it's for any OS you want.
 
-Due to using LUKS encryption, Tails' persistent volume feature currently offers no anti-forensics for the data in that area of your Tails stick and is therefore not airport border inspection proof. If that ever changes, we would prefer to integrate HiddenCM more elegantly into Tails' existing infrastructure, and we appreciate the wonderful work that the Tails devs do.
+Due to using LUKS encryption, Tails' persistent volume feature currently offers no anti-forensics for the data in that area of your Tails stick and is therefore not airport border inspection proof. If that ever changes, we would prefer to integrate HiddenVM more elegantly into Tails' existing infrastructure, and we appreciate the wonderful work that the Tails devs do.
 
 ### Can I install the Extension Pack in HVM's VirtualBox?
 
@@ -160,9 +160,9 @@ Note: This is not an issue for Whonix-Gateway, which resolve hostnames via its o
 
 We do indeed change a few security settings in the Tails Debian system in order to make HiddenVM do its thing. Apart from the fact that you can inspect our code, soon we'll add to our Wiki the list of exactly what HiddenVM temporarily modifies in your Tails environment from a security standpoint so that you can know exactly what's going on.
 
-E.g. HVM hooks into Tails'['clearnet' user](https://tails.boum.org/contribute/design/Unsafe_Browser/#index2h2) infrastructure, which some people are already concerned about even existing in Tails.
+E.g. HVM hooks into Tails' ['clearnet' user](https://tails.boum.org/contribute/design/Unsafe_Browser/#index2h2) infrastructure, which some people are already concerned about even existing in Tails.
 
-We also increase the `sudo` timeout to improve the user experience to only need password authentication one time and because when installing HVM or during weekly updates it can sometimes take a while to do its thing. This timeout is not normally extended in Tails' Debian environment and it may make elevated privileges available to malware you can accidentally download in your Tails environment.
+We also increase the `sudo` timeout to improve the user experience to only need password authentication one time. This is because HiddenVM can sometimes take a while to do its thing when installing or during weekly updates. This timeout is not normally extended in Tails' Debian environment and it may make elevated privileges available to malware you can accidentally download in your Tails environment.
 
 In the end, the factor that controls your safely more than anything else is what you choose to do in Tails. We and the Tails project can only help you so much.
 
