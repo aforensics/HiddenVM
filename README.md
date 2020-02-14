@@ -78,7 +78,7 @@ We are aligned with Tails and Tor projects in our intentions and promotion of ho
 
 ### What guest operating systems work with HiddenVM?
 
-So far we have successfully tested Windows 10, macOS Mojave, Linux Mint, Ubuntu, Xubuntu, Fedora, and Whonix. Anything that works in VirtualBox should be compatible. Our Wiki will have how-to's and links for specific OSes. Please contribute your findings in our [subreddit](https://reddit.com/r/HiddenVM).
+So far we have successfully tested Windows 10, macOS Mojave, Linux Mint, Ubuntu, Xubuntu, Fedora, and Whonix. Anything that works in VirtualBox should be compatible. Our Wiki will have how-to's and links for specific OSes. Please contribute your findings in [our subreddit](https://reddit.com/r/HiddenVM).
 
 ### How much RAM do I need?
 
