@@ -178,7 +178,7 @@ We take user privacy, security, and anonymity very seriously and will implement 
 
 Furthermore, HiddenVM may attract new users to the Tails user base, which will increase its anonymity set, which is beneficial for the Tails community.
 
-Although we don't use Tails' Tor environment for our main computing and we prefer HVM Whonix instead, we are still promoting and making use of Tails' Tor as a fundamental part of downloading and setting up HiddenVM. Due to Tails being amnesic and connecting to the Tor network by default, it is an incredibly safe environment to set up a computer using HiddenVM, are we are excited about that. 
+Although we don't use Tails' Tor environment for our main Tor computing and prefer HVM Whonix instead, we are still promoting and making use of Tails' Tor as a fundamental part of downloading and setting up HiddenVM. Due to Tails being amnesic and connecting to the Tor network by default, it is an incredibly safe environment to set up a computer using HiddenVM, and we are excited about that. 
 
 As such, we are normal Tails users and advocates just like anyone else.
 
