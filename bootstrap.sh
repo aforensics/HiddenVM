@@ -34,9 +34,9 @@ HVM_VERSION_FILE="${SCRIPT_HOME}/HVM_VERSION"
 HVM_VERSION_FROM_VERSION_FILE=$(cat "${HVM_VERSION_FILE}")
 
 # Set the terminal title
-echo -e "\033]0;HiddenVM ${HVM_VERSION_FROM_VERSION_FILE}\007"
+echo -e "\033]0;HiddenVM v${HVM_VERSION_FROM_VERSION_FILE}\007"
 
-log "Begin installation of HiddenVM ${HVM_VERSION_FROM_VERSION_FILE}, prog-id=1"
+log "Begin installation of HiddenVM v${HVM_VERSION_FROM_VERSION_FILE}, prog-id=1"
 
 cat <<EOF
 
@@ -50,8 +50,8 @@ EOF
 if ! is_tails_version_supported "${SCRIPT_HOME}/SUPPORTED_TAILS_VERSIONS"; then
     CUR_TAILS_VERSION=$(get_tails_version)
 
-    log "WARNING: HiddenVM ${HVM_VERSION_FROM_VERSION_FILE} might not be compatible with your version of Tails (${CUR_TAILS_VERSION}). The installation may fail."
-    zenity --width 400 --question --title "HiddenVM" --text "HiddenVM ${HVM_VERSION_FROM_VERSION_FILE} might not be compatible with your version of Tails (${CUR_TAILS_VERSION}).\n\nPlease visit <a href='https://github.com/aforensics/HiddenVM'>https://github.com/aforensics/HiddenVM</a> for more information.\n\nThe installation may fail. Do you want to continue?" > /dev/null 2>&1
+    log "WARNING: HiddenVM v${HVM_VERSION_FROM_VERSION_FILE} might not be compatible with your version of Tails (${CUR_TAILS_VERSION}). The installation may fail."
+    zenity --width 400 --question --title "HiddenVM" --text "HiddenVM v${HVM_VERSION_FROM_VERSION_FILE} might not be compatible with your version of Tails (${CUR_TAILS_VERSION}).\n\nPlease visit <a href='https://github.com/aforensics/HiddenVM'>https://github.com/aforensics/HiddenVM</a> for more information.\n\nThe installation may fail. Do you want to continue?" > /dev/null 2>&1
 fi
 
 # Make sure the CLEARNET_VBOX_LIB_HOME directory exists and is clean

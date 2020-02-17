@@ -45,7 +45,7 @@ launch_vbox() {
 VBOX_LAUNCH_LOG_FILE="${HVM_HOME}/logs/clearnet-vbox.log"
 exec &> >(tee "${VBOX_LAUNCH_LOG_FILE}")
 
-log "HiddenVM ${HVM_VERSION}"
+log "HiddenVM v${HVM_VERSION}"
 
 # Make sure the HiddenVM home is there (maybe the user ejected the drive)
 if [ ! -d "${HVM_HOME}" ]; then
