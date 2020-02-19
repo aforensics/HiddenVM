@@ -76,7 +76,7 @@ If you are a political dissident in a country under totalitarian rule, for someo
 
 We are aligned with Tails and Tor projects in our intentions and promotion of how our software can and should be used.
 
-### What guest operating systems work with HiddenVM?
+### What guest OSes work with HiddenVM?
 
 So far we have successfully tested Windows 10, macOS Mojave, Linux Mint, Ubuntu, Xubuntu, Fedora, and Whonix. Anything that works in VirtualBox should be compatible. Our Wiki will have how-to's and links for specific OSes. Please contribute your findings in [our subreddit](https://reddit.com/r/HiddenVM).
 
@@ -99,6 +99,10 @@ Yes. In fact it may be possible to use HVM offline for extended periods of even 
 We can't guarantee this, but limited testing by the team has confirmed this being possible for at least a month.
 
 As soon as you connect to the Internet, HiddenVM may upgrade its cached software and you may have to upgrade to the latest version from our GitHub as well as Tails itself, but after all software is updated and verified as in sync by HiddenVM, it may be possible to use it offline for an extended period again.
+
+### Known limitations:
+
+- Currently, during HiddenVM's launch process doing some things in Tails can irrecoverably crash your Tails session. The main thing to know about is deleting or creating files in the 'Files' (Nautilius) application. (You can still open and work on files including saving them from other applications or use Tails' Tor Browser.) This problem is caused by our complicated process of installing VirtualBox in Tails which temporarily upgrades and then restores the original versions of certain dependencies used by Nautilus. Once HiddenVM has finished its thing you can do all activities in Tails once more. We hope we can remove this limitation in a future HVM redesign.
 
 ### 'Extras' and 'Dotfiles' feature
 
