@@ -43,7 +43,7 @@ jobs:
             VERSION="v$(cat HVM_VERSION)"
             echo "Publishing HiddenVM release: ${VERSION}"
             cd ./appimage/target
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -b "Automatically created by CircleCI." -recreate ${VERSION} ./release/
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -n "${VERSION}" -b "Automatically created by CircleCI." -recreate ${VERSION} ./release/
             
 workflows:
   version: 2
