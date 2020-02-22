@@ -22,7 +22,7 @@ jobs:
             
             # Can't execute AppImage directly because it requires FUSE, which is not available in this env.
             # So extract the AppImage and symlink its AppRun to ./appimagetool-x86_64.AppImage. This will
-            # allow make-app-image.sh to work without changes.
+            # allow make-appimage.sh to work without changes.
             ./appimagetool-x86_64.AppImage --appimage-extract
             rm -f ./appimagetool-x86_64.AppImage
             ln -s ./squashfs-root/AppRun appimagetool-x86_64.AppImage   

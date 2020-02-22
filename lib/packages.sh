@@ -68,7 +68,7 @@ install_packages() {
 # (for example, gnome-shell can crash). So this downgrades those packages.
 downgrade_packages_for_stability() {
     # Figure out if any packages were upgraded as a result of installing linux-headers
-    # The awk command gets all log chucks for all linux-headers install instances
+    # The awk command gets all log chunks for all linux-headers install instances
     local APT_HISTORY_LOG="/var/log/apt/history.log"
     if UPGRADE_TXT=$(awk '/Commandline: apt-get.*install.*linux-headers.*/','/End-Date/' \
         "${APT_HISTORY_LOG}" | grep Upgrade)
@@ -297,7 +297,7 @@ back_up_apt_packages() {
     sudo chown -R amnesia:amnesia "${APT_CACHE_BACKUP_DIR}"
 
     local TAILS_VERSION=$(get_tails_version)
-    echo "$TAILS_VERSION" > "${LAST_TAILS_VERSION_FILE}"
+    echo "${TAILS_VERSION}" > "${LAST_TAILS_VERSION_FILE}"
     log "Recorded Tails version ${TAILS_VERSION}"
 }
 
@@ -308,7 +308,7 @@ get_cached_pkgs_name_version_file_csv() {
     # run dpkg-scanpackages.
     pushd /home/amnesia >/dev/null
 
-    # awk:   get chucks between 'Package' and 'Filename' lines (all inclusive). The 'Version' line should be in between.
+    # awk:   get chunks between 'Package' and 'Filename' lines (all inclusive). The 'Version' line should be in between.
     # grep:  keep only the 'Package', 'Version' and 'Filename' lines
     # sed:   remove the labels
     # paste: merge every 3 lines using a comma as the output delimiter
