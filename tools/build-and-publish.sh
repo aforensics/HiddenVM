@@ -37,6 +37,7 @@ while [ -n "${1-}" ]; do
     shift
 done
 
+pushd ../appimage
 ./make-appimage.sh
 
 HVM_VERSION=$(./target/HiddenVM-*-x86_64.AppImage -version)
@@ -54,6 +55,7 @@ echo "Publishing release v${HVM_VERSION} to github"
 # Run ghr from repo root. Note that you must have an API token configured.
 pushd ../
 
-$(go env GOPATH)/bin/ghr ${GHR_OPT} "v${HVM_VERSION}" appimage/target/release
+$(go env GOPATH)/bin/ghr ${GHR_OPT} -n v${HVM_VERSION} v${HVM_VERSION} appimage/target/release
 
+popd
 popd
