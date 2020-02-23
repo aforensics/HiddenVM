@@ -166,7 +166,6 @@ mkdir -p "${HVM_HOME}/logs"
 
 # Run setup steps in the proper order
 configure_system
-install_extra_apt_list
 restore_apt_package_cache
 update_package_list_for_vbox_or_restore_cache
 install_packages
@@ -178,6 +177,7 @@ if should_prune_package_cache; then
 fi
 
 downgrade_packages_for_stability
+install_extra_apt_list
 update_package_list_for_other_uses_or_restore_cache
 setup_clearnet
 setup_vbox_persistent_config

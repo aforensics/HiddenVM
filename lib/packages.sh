@@ -112,11 +112,6 @@ should_apt_update() {
     local APT_LIST_CACHE_DIR="${1}"
     local LAST_APT_UPDATE_DATE_FILE="${2}"
 
-    if ! is_tor_ready; then
-        log "Tor is not ready, will not check if 'apt-get update' should be run"
-        return 1
-    fi
-
     if [ ! -f "${LAST_TAILS_VERSION_FILE}" ]; then
         log "Did not find previously cached Tails version - will not use apt caches"
         return 0
@@ -156,7 +151,13 @@ should_apt_update() {
     # Has it been too long since the last apt update?
     if [ "${NUM_DAYS}" -ge "${APT_UPDATE_FREQ_DAYS}" ]; then
         log "It's been at least ${APT_UPDATE_FREQ_DAYS} days since 'apt-get update' was last run (${LAST_APT_UPDATE_DATE_FILE})"
-        return 0
+
+        if ! is_tor_ready; then
+            log "Tor is not ready, will not run 'apt-get update'"
+            return 1
+        else
+            return 0
+        fi
     fi
 
     return 1 # no apt update needed
@@ -194,6 +195,11 @@ should_prune_package_cache() {
 # $1: Options
 # $2: 'Last apt update date' file to use
 run_apt_update() {
+    if ! is_tor_ready; then
+        error "Tor is not ready, cannot run 'apt-get update'"
+        exit 1
+    fi
+
     local APT_OPTS="${1}"
     local LAST_APT_UPDATE_DATE_FILE="${2}"
 
