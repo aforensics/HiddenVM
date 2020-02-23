@@ -102,7 +102,7 @@ As soon as you connect to the Internet, HiddenVM may upgrade its cached software
 
 ### Known limitations:
 
-- Currently, during HiddenVM's launch process doing some things in Tails might irrecoverably crash your Tails session. It's currently unpredictable and not very known what actions could do it, and please report if you notice anything. We have previously noticed that deleting or creating files in the 'Files' (Nautilius) application would cause a crash, but that might no longer be the case. This problem is caused by our complicated process of installing VirtualBox in Tails, which temporarily upgrades and then restores the original versions of certain dependencies used by Nautilus. Once HiddenVM has finished its thing you can do all activities in Tails once more. We hope we can remove this limitation in a future HVM redesign.
+- Currently, during HiddenVM's launch process doing some tasks in Tails can crash your live session. It's only a few uncommon tasks, not common things like using Tails' Tor Browser. This problem is caused by our complicated process of installing VirtualBox in Tails that temporarily upgrades and then restores the original versions of dependencies used by certain GNOME apps. When HiddenVM completes its launch you can resume any activity in Tails again. We hope we can remove this limitation in a future HVM redesign.
 
 ### 'Extras' and 'Dotfiles' feature
 
