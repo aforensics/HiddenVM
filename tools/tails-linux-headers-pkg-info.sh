@@ -70,12 +70,11 @@ done
 echo
 echo "Cleaning up apt lists by re-running 'apt-get update'"
 # run apt-get update to clean up the lists we downloaded above
-sudo apt-get -y -q -o Acquire::Check-Valid-Until=false update
+sudo apt-get -y -q update
 
 echo
 if [ -n "${MATCHING_RELEASE}" ]; then
     echo "Release found for ${LINUX_HEADERS}: ${MATCHING_RELEASE}"
-    echo "Generated Debian sources:"
     echo
 
     for RELEASE in ${TAILS_DEB_STABLE_RELEASE} ${MATCHING_RELEASE}; do
