@@ -27,17 +27,17 @@ rm -rf "${ROOT_DIR}" "${TARGET_DIR}"
 mkdir -p "${ROOT_DIR}" "${TARGET_DIR}/release"
 
 # Copy the files we want
-cp AppRun "${ROOT_DIR}/"
-cp launch-log-progress.sh "${ROOT_DIR}/"
-cp hiddenvm.desktop "${ROOT_DIR}/"
 cp -r \
+    ../AppRun \
+    ../launch-log-progress.sh \
     ../bootstrap.sh \
+    ../lib \
+    ../extras \
     ../HVM_VERSION \
     ../SUPPORTED_TAILS_VERSIONS \
-    ../extras \
-    ../lib \
     ../LICENSE \
-    "${ROOT_DIR}/"
+    hiddenvm.desktop \
+        "${ROOT_DIR}/"
 
 pushd "${ROOT_DIR}"
 # Use a dummy icon file for now
