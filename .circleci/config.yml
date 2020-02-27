@@ -40,10 +40,11 @@ jobs:
       - run:
           name: "Publish release"
           command: |
-            VERSION="v$(cat HVM_VERSION)"
+            VERSION="v$(cat ./HVM_VERSION)"
+            RELEASE_BODY="Supported Tails versions: $(cut -d " " -f 1 < ./SUPPORTED_TAILS_VERSIONS | paste -s -d "," | sed "s/,/, /g")"
             echo "Publishing HiddenVM release: ${VERSION}"
             cd ./appimage/target
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -n ${VERSION} -recreate ${VERSION} ./release/
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -n ${VERSION} -b "${RELEASE_BODY}" -recreate ${VERSION} ./release/
             
 workflows:
   version: 2

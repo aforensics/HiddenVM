@@ -55,7 +55,8 @@ echo "Publishing release v${HVM_VERSION} to github"
 # Run ghr from repo root. Note that you must have an API token configured.
 pushd ../
 
-$(go env GOPATH)/bin/ghr ${GHR_OPT} -n v${HVM_VERSION} v${HVM_VERSION} appimage/target/release
+RELEASE_BODY="Supported Tails versions: $(cut -d " " -f 1 < ./SUPPORTED_TAILS_VERSIONS | paste -s -d "," | sed "s/,/, /g")"
+$(go env GOPATH)/bin/ghr ${GHR_OPT} -n v${HVM_VERSION} -b "${RELEASE_BODY}" v${HVM_VERSION} appimage/target/release
 
 popd
 popd
