@@ -54,7 +54,7 @@ HiddenVM: *insanely private!*
 
 - Extract our AppImage and place it next to the SHA512.
 
-- Do `sha512sum -c HiddenVM-*-x86_64.sha512sum` and it will check both the ZIP and the AppImage.
+- Do `sha512sum -c HiddenVM-*-x86_64.sha512` and it will check both the ZIP and the AppImage.
 
 ### Or generate your own AppImage from our code after inspecting it:
 
