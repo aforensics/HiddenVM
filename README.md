@@ -48,7 +48,7 @@ HiddenVM: *insanely private!*
 
 - Once you trust the current version of HiddenVM, when new releases arrive you can track code changes by using [Meld](https://meldmerge.org) (`sudo apt install meld`). Drag and drop the old and new folders together into *Meld*, and any code differences will be highlighted.
 
-### And if you're paranoid, check the integrity of our ZIP release file:
+### And if you're precautious, check the integrity of our ZIP release file:
 
 - Download both our ZIP and the MD5.
 
