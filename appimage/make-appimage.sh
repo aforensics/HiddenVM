@@ -69,8 +69,8 @@ if ! command -v zip; then
 fi
 zip "${APPIMG_NAME}.zip" "${APPIMG_FILE}" LICENSE
 
-# Generate md5 sums
-md5sum "${APPIMG_NAME}"* > "${APPIMG_NAME}.md5"
+# Generate sha512 sums
+sha512sum "${APPIMG_NAME}"* > "${APPIMG_NAME}.sha512"
 
-mv "${APPIMG_NAME}.zip" "${APPIMG_NAME}.md5" release/
+mv "${APPIMG_NAME}.zip" "${APPIMG_NAME}.sha512" release/
 popd
