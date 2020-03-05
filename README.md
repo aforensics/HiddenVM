@@ -16,9 +16,9 @@ To ensure anti-forensic deniability of your VMs, you can place your persistent H
 
 If you set it up correctly, when your computer is turned off all anyone can plausibly see is a blank Tails USB and a 'wiped' hard drive full of meaningless data, or a default booting decoy OS in a partition that you can create.
 
-How does it feel to have *no* trace of your entire operating system - whether it's Windows, macOS or Linux - ever touch your hard drive?
+How does it feel to have *no* trace of your entire operating system - whether it's Windows, macOS or Linux - ever touch your hard drive? Now you can find out.
 
-Now you can find out. HiddenVM: *insanely private!*
+HiddenVM: *insanely private!*
 
 ## Installation and usage
 
