@@ -10,7 +10,7 @@ Whether you use Windows, macOS or Linux, now there's a tech solution for better 
 
 This means you can run almost any OS as a VM inside the most anti-forensic computing environment in the world. Works where Tails does.
 
-The VM even connects to full-speed pre-Tor Internet by default, while leaving the outer Tor connection in Tails undisturbed.
+The VM will even connect to full-speed pre-Tor Internet by default, while leaving the Tor connection in Tails undisturbed.
 
 To ensure anti-forensic deniability of your VMs, you can place your persistent HiddenVM installation - containing all VirtualBox binaries, VMs, and HiddenVM itself - in a [hidden VeraCrypt volume](https://www.veracrypt.fr/en/Hidden%20Volume.html), and only mount it in the amnesic Tails.
 
