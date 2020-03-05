@@ -8,6 +8,7 @@ jobs:
       - run:
           name: "Check if a tag already exists for HVM_VERSION"
           command: |
+            sha512sum --help
             VERSION="v$(cat HVM_VERSION)"
             if [ "$(git tag -l ${VERSION})" = "${VERSION}" ]; then
                 echo "Tag v$(cat HVM_VERSION) already exists. Halting job."
