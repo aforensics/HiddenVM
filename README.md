@@ -30,7 +30,7 @@ HiddenVM: *insanely private!*
 
 - **[Download our latest release ZIP](https://github.com/aforensics/HiddenVM/releases)** and extract the archive.
 
-- Run our AppImage file from the file browser.
+- Run our AppImage file from the Files browser.
 
 - Choose to store HiddenVM in your secure storage and it will download all binaries to launch VirtualBox.
 
@@ -176,7 +176,7 @@ As a result, we strongly suggest minimal usage of outer Tails Internet activity 
 
 No, HiddenVM is just an innovative and unexpected use of Tails that people didn't think was possible.
 
-Our project actually is a high compliment to Tails. We're promoting Tails as an entire platform and ecosystem for aforensic computing, which enlarges the vision of Tails's benefit to the world. We trust and humbly rely on Tails, Tor, Debian and Linux as upstream projects and we feel an extreme sense of responsibility with what we're doing.
+Our project actually pays a high compliment to Tails. We're promoting Tails as an entire platform and ecosystem for aforensic computing, which expands the vision of its benefits for the world. We trust and humbly rely on Tails, Tor, Debian and Linux as upstream projects and we feel an extreme sense of responsibility with what we're doing.
 
 We take user privacy, security, and anonymity very seriously and will implement updates to improve the default safety for HiddenVM users over time. For now, we invite you to inspect our code and offer suggestions and contributions that improve security without removing functionality or features.
 
