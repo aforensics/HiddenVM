@@ -50,11 +50,11 @@ HiddenVM: *insanely private!*
 
 ### And if you're paranoid, check the integrity of our ZIP release file:
 
-- Download both our ZIP and the MD5.
+- Download both our ZIP and the SHA512.
 
-- Extract our AppImage and place it next to the MD5.
+- Extract our AppImage and place it next to the SHA512.
 
-- Do `md5sum -c HiddenVM-*-x86_64.md5` and it will check both the ZIP and the AppImage.
+- Do `sha512sum -c HiddenVM-*-x86_64.sha512sum` and it will check both the ZIP and the AppImage.
 
 ### Or generate your own AppImage from our code after inspecting it:
 
