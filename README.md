@@ -22,7 +22,7 @@ HiddenVM: *insanely private!*
 
 ## Installation and usage
 
-- Boot into [Tails](https://tails.boum.org) on your computer and set an [administration password](https://tails.boum.org/doc/first_steps/startup_options/administration_password/index.en.html) for your session.
+- Boot into [Tails](https://tails.boum.org) on your computer and set an [admin password](https://tails.boum.org/doc/first_steps/startup_options/administration_password/index.en.html) for your session.
 
 - [Do NOT use](#why-shouldnt-i-use-tails-official-persistent-volume-feature) Tails' [persistent volume feature](https://tails.boum.org/doc/first_steps/persistence/index.en.html).
 
@@ -30,7 +30,7 @@ HiddenVM: *insanely private!*
 
 - **[Download our latest release ZIP](https://github.com/aforensics/HiddenVM/releases)** and extract the archive.
 
-- Run our AppImage file from the Files browser.
+- Run our AppImage file in the Files browser.
 
 - Choose to store HiddenVM in your secure storage and it will download all binaries to launch VirtualBox.
 
@@ -48,7 +48,7 @@ HiddenVM: *insanely private!*
 
 - Once you trust the current version of HiddenVM, when new releases arrive you can track code changes by using [Meld](https://meldmerge.org) (`sudo apt install meld`). Drag and drop the old and new folders together into *Meld*, and any code differences will be highlighted.
 
-### And if you're paranoid, also check the integrity of our ZIP release file:
+### And if you're paranoid, check the integrity of our ZIP release file:
 
 - Download both our ZIP and the MD5.
 
@@ -70,9 +70,9 @@ See your own generated AppImage in the `target` subdir.
 
 ### What type of person might use HiddenVM?
 
-**HiddenVM** (called **HVM** for short), in the same way as Tor and Tails, is intended for a wide range of people and situations around the world. In our digital age of increasing surveillance and control, we need tools to keep digital privacy and freedom alive.
+In the same way as Tor and Tails, **HiddenVM** (called **HVM** for short) is intended for a wide range of people and situations around the world. In our digital age of increasing surveillance and control, we need tools to keep digital privacy and freedom alive.
 
-If you are a political dissident in a country under totalitarian rule, for someone in your situation there has never been a robust tech solution to truly hide and protect your data in a convenient way. Our tool may provide that for you.
+If you are a political dissident in a country under totalitarian rule, in your situation there has never been a robust tech solution to truly hide and protect your data in a convenient way. Our tool may provide that for you.
 
 We are aligned with the Tails and Tor projects in our intention and promotion of how this software could and should be used.
 
