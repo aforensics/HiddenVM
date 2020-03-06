@@ -45,6 +45,15 @@ LOG_FILE="${LAUNCH_DIR}/HiddenVM.log"
 # We need common functions and CLEARNET_VBOX_ENV_FILE
 . "${HERE}/lib/common.sh"
 
+# Prevent running multiple instances of this script
+CMD="$(basename "${0}")"
+exec 9>"/var/lock/HiddenVM-${CMD}"
+if ! flock -x -n 9; then
+    error "Another instance of HiddenVM is already running"
+    warn_box "HiddenVM" "HiddenVM is already running!"
+    exit 1
+fi
+
 log "Launch dir: ${LAUNCH_DIR}"
 log "HERE: ${HERE}"
 
