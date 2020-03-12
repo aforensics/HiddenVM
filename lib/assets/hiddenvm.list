@@ -1,6 +1,6 @@
 # Snapshot archive sources for the currently supported Tails version
-deb [check-valid-until=no] tor+http://snapshot.debian.org/archive/debian/20200119T211603Z/ buster main contrib
-deb [check-valid-until=no] tor+http://snapshot.debian.org/archive/debian/20200119T211603Z/ sid main contrib
+deb [check-valid-until=no] tor+http://snapshot.debian.org/archive/debian/20200213T231921Z/ buster main contrib
+deb [check-valid-until=no] tor+http://snapshot.debian.org/archive/debian/20200213T231921Z/ sid main contrib
 
 # VirtualBox (release should match whatever Tails is using)
 deb [trusted=yes] tor+http://download.virtualbox.org/virtualbox/debian buster contrib

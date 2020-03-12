@@ -21,6 +21,7 @@ set -u
 
 if ! command -v jq >/dev/null; then
     echo "Must install jq"
+    sudo apt-get -y -q update
     sudo apt-get -y -q install jq
     echo
 fi
@@ -30,6 +31,7 @@ KREL=$(uname -r)
 KVER=$(uname -v | cut -d' ' -f 4)
 LINUX_HEADERS="linux-headers-${KREL}"
 TAILS_DEB_STABLE_RELEASE=$(lsb_release -c -s)
+TAILS_VERSION=$(tails-version | head -1)
 
 CURL_OPTS="-s --socks5 localhost:9150"
 
@@ -42,6 +44,7 @@ PKG_FILE_INFO_URL="https://snapshot.debian.org/mr/file/${PKG_HASH}/info"
 PKG_FIRST_SEEN=$(curl ${CURL_OPTS} ${PKG_FILE_INFO_URL} | jq -r .result[0].first_seen)
 
 echo "Tails release:  ${TAILS_DEB_STABLE_RELEASE}"
+echo "Tails version:  ${TAILS_VERSION}"
 echo "Kernel release: ${KREL}"
 echo "Kernel version: ${KVER}"
 echo "Linux headers:  ${LINUX_HEADERS}"
