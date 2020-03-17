@@ -28,6 +28,7 @@ PKG_CACHE_PRUNE_FREQ_DAYS=7
 LAST_TAILS_VERSION_FILE="${CACHE_DIR}/last-tails-version"
 LINUX_HEADERS_PKG="linux-headers-$(uname -r)"
 LINUX_HEADERS_RELEASE="sid"
+VBOX_PACKAGE_NAME="virtualbox-6.1"
 
 # SourceList is to replace /etc/apt/sources.list
 # SourceParts=- is to disable /etc/apt/sources.list.d
@@ -61,7 +62,7 @@ install_packages() {
     # Install VirtualBox (note that this will create the vboxusers group and
     # build/install the VirtualBox kernel drivers)
     log "Install VirtualBox, prog-id=11"
-    sudo apt-get -q -y ${APT_OPTS_FOR_VBOX} install virtualbox-6.1
+    sudo apt-get -q -y ${APT_OPTS_FOR_VBOX} install ${VBOX_PACKAGE_NAME}
 }
 
 # If system packages were upgraded by linux-headers, the system may become unstable

@@ -58,7 +58,7 @@ log "Launch dir: ${LAUNCH_DIR}"
 log "HERE: ${HERE}"
 
 # If we have a local env file (relative to LAUNCH_DIR),
-# save its path so we can pass it to bootstrap.sh
+# save its path so we can pass it to launch-log-progress.sh
 ENV_FILE="${LAUNCH_DIR}/HiddenVM/env"
 ENV_FILE_ARG=
 if [ -f "${ENV_FILE}" ]; then
@@ -70,10 +70,10 @@ fi
 
 # gnome-terminal uses a client-server architecture, so a server is reused and
 # new windows are created, rather than separate processes. This doesn't work
-# for us, because we need to make sure AppRun waits for bootstrap to complete
-# before terminating. Otherwise the AppImage will be unmounted before bootstrap
-# finishes. So the solution is to start a custom terminal server and open a
-# client terminal on it.
+# for us, because we need to make sure AppRun waits for launch-log-progress.sh
+# to complete before terminating. Otherwise the AppImage will be unmounted
+# before launch-log-progress.sh finishes. So the solution is to start a custom
+# terminal server and open a client terminal on it.
 
 SERVER_APP_ID="hidden.vm.id"
 /usr/lib/gnome-terminal/gnome-terminal-server --app-id "${SERVER_APP_ID}" &
@@ -94,9 +94,9 @@ done
 # will terminate when the terminal is closed)
 fg
 
-log "bootstrap gnome-terminal was closed"
+log "gnome-terminal was closed"
 
-# If bootstrap.sh successfully installed the env file in
+# If launch-log-progress.sh successfully installed the env file in
 # CLEARNET_VBOX_LIB_HOME, source it to get the HVM_HOME
 if [ -f "${CLEARNET_VBOX_ENV_FILE}" ]; then
     . "${CLEARNET_VBOX_ENV_FILE}"
