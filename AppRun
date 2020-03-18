@@ -45,6 +45,8 @@ LOG_FILE="${LAUNCH_DIR}/HiddenVM.log"
 # We need common functions and CLEARNET_VBOX_ENV_FILE
 . "${HERE}/lib/common.sh"
 
+enforce_amnesia
+
 # Prevent running multiple instances of this script
 CMD="$(basename "${0}")"
 exec 9>"/var/lock/HiddenVM-${CMD}"

@@ -58,6 +58,17 @@ fi
 rm -rf "${CLEARNET_VBOX_LIB_HOME}"
 mkdir -p "${CLEARNET_VBOX_LIB_HOME}"
 
+# Install some necessary files to CLEARNET_VBOX_LIB_HOME
+log "Copy files to ${CLEARNET_VBOX_LIB_HOME}, prog-id=2"
+cp "${SCRIPT_HOME}/lib/common.sh" "${CLEARNET_VBOX_LIB_HOME}"
+cp "${SCRIPT_HOME}/lib/clearnet-vbox.sh" "${CLEARNET_VBOX_LIB_HOME}"
+chmod +x "${CLEARNET_VBOX_LIB_HOME}/clearnet-vbox.sh"
+cp "${SCRIPT_HOME}/lib/process-dotfile.sh" "${CLEARNET_VBOX_LIB_HOME}"
+chmod +x "${CLEARNET_VBOX_LIB_HOME}/process-dotfile.sh"
+cp "${SCRIPT_HOME}/lib/never-ask-password.sh" "${CLEARNET_VBOX_LIB_HOME}"
+chmod +x "${CLEARNET_VBOX_LIB_HOME}/never-ask-password.sh"
+cp -r "${SCRIPT_HOME}/lib/assets" "${CLEARNET_VBOX_LIB_HOME}"
+
 # Function: Asks the user to select their HiddenVM home directory, pre-selecting
 # /media/amnesia. Note that this function sets the HVM_HOME variable!
 choose_hiddenvm_home_dir() {
@@ -81,30 +92,18 @@ choose_hiddenvm_home_dir() {
     HVM_HOME="${CHOSEN_HVM_HOME}"
 }
 
-# Disable the "always ask for password" Tails sudo policy. First validate the
-# entered admin password, making the user retry until successful. Then disable
+# Override the "always ask for password" Tails sudo policy. First validate the
+# entered admin password, making the user retry until successful. Then override
 # the policy and refresh the credentials so that future sudo commands won't
-# require authentication until expiry (the default is 15 minutes).
-TAILS_SUDO_TIMEOUT_POLICY="/etc/sudoers.d/always-ask-password"
+# require authentication.
 while :
 do
     sudo -K # clear credentials cache to force authentication
     ADMIN_PASS=$(zenity --password --title "Admin password needed" 2>/dev/null)
     echo "${ADMIN_PASS}" | sudo -S -v > /dev/null 2>&1 && break
 done
-echo "${ADMIN_PASS}" | \
-    sudo -S mv "${TAILS_SUDO_TIMEOUT_POLICY}" "${TAILS_SUDO_TIMEOUT_POLICY}.disabled" \
-    2>/dev/null || true
+echo "${ADMIN_PASS}" | sudo -S "${CLEARNET_VBOX_LIB_HOME}/never-ask-password.sh"
 echo "${ADMIN_PASS}" | sudo -S -v > /dev/null 2>&1
-
-# Install files needed externally to CLEARNET_VBOX_LIB_HOME
-log "Copy files to ${CLEARNET_VBOX_LIB_HOME}, prog-id=2"
-cp "${SCRIPT_HOME}/lib/common.sh" "${CLEARNET_VBOX_LIB_HOME}"
-cp "${SCRIPT_HOME}/lib/clearnet-vbox.sh" "${CLEARNET_VBOX_LIB_HOME}"
-chmod +x "${CLEARNET_VBOX_LIB_HOME}/clearnet-vbox.sh"
-cp "${SCRIPT_HOME}/lib/process-dotfile.sh" "${CLEARNET_VBOX_LIB_HOME}"
-chmod +x "${CLEARNET_VBOX_LIB_HOME}/process-dotfile.sh"
-cp -r "${SCRIPT_HOME}/lib/assets" "${CLEARNET_VBOX_LIB_HOME}"
 
 # Give ownership of the amnesia mounts to the amnesia user+group and relax the permissions.
 # For example, new Veracrypt volume mounts are initially owned by root:root.

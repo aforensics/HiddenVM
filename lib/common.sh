@@ -21,6 +21,7 @@ set -u
 CLEARNET_VBOX_LIB_HOME="/home/amnesia/.clearnet-vbox"
 CLEARNET_VBOX_ENV_FILE="${CLEARNET_VBOX_LIB_HOME}/env"
 CLEARNET_HVM_MOUNT="/home/clearnet/HiddenVM"
+HIDDENVM_SUDO_TIMEOUT_POLICY="/etc/sudoers.d/zzzzzzzzzz-hiddenvm-02-never-ask-password"
 
 # Logs a message in a standardized format to stdout
 # $1 The message to log
@@ -56,7 +57,7 @@ enforce_amnesia() {
 
 enforce_root() {
     if [ "$(whoami)" != "root" ]; then
-        log "This should be run by root (or using sudo). Failing..."
+        error "This should be run by root (or using sudo). Failing..."
         exit 1
     fi
 }
