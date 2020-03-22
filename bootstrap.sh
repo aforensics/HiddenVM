@@ -22,15 +22,12 @@ set -u
 
 SECONDS=0 # Reset elapsed time
 
-# The directory where this script lives
-SCRIPT_HOME="$(dirname "$(readlink -f "${0}")")"
-
 # Source some common variables and functions we need
-. "${SCRIPT_HOME}/lib/common.sh"
+. "lib/common.sh"
 
 enforce_amnesia
 
-HVM_VERSION_FILE="${SCRIPT_HOME}/HVM_VERSION"
+HVM_VERSION_FILE="./HVM_VERSION"
 HVM_VERSION_FROM_VERSION_FILE=$(cat "${HVM_VERSION_FILE}")
 
 # Set the terminal title
@@ -47,7 +44,7 @@ cat <<EOF
 EOF
 
 # Check if the Tails version is supported and let the user decide whether to continue
-if ! is_tails_version_supported "${SCRIPT_HOME}/SUPPORTED_TAILS_VERSIONS"; then
+if ! is_tails_version_supported "./SUPPORTED_TAILS_VERSIONS"; then
     CUR_TAILS_VERSION=$(get_tails_version)
 
     log "WARNING: HiddenVM v${HVM_VERSION_FROM_VERSION_FILE} might not be compatible with your version of Tails (${CUR_TAILS_VERSION}). The installation may fail."
@@ -58,39 +55,21 @@ fi
 rm -rf "${CLEARNET_VBOX_LIB_HOME}"
 mkdir -p "${CLEARNET_VBOX_LIB_HOME}"
 
-# Install some necessary files to CLEARNET_VBOX_LIB_HOME
 log "Copy files to ${CLEARNET_VBOX_LIB_HOME}, prog-id=2"
-cp "${SCRIPT_HOME}/lib/common.sh" "${CLEARNET_VBOX_LIB_HOME}"
-cp "${SCRIPT_HOME}/lib/clearnet-vbox.sh" "${CLEARNET_VBOX_LIB_HOME}"
+
+# Install some scripts/libraries to CLEARNET_VBOX_LIB_HOME to support some
+# HiddenVM features that can launch from outside the AppImage mount, such as
+# the user manually launching Clearnet VirtualBox.
+cp "lib/common.sh" "${CLEARNET_VBOX_LIB_HOME}"
+cp "lib/clearnet-vbox.sh" "${CLEARNET_VBOX_LIB_HOME}"
 chmod +x "${CLEARNET_VBOX_LIB_HOME}/clearnet-vbox.sh"
-cp "${SCRIPT_HOME}/lib/process-dotfile.sh" "${CLEARNET_VBOX_LIB_HOME}"
-chmod +x "${CLEARNET_VBOX_LIB_HOME}/process-dotfile.sh"
-cp "${SCRIPT_HOME}/lib/never-ask-password.sh" "${CLEARNET_VBOX_LIB_HOME}"
+
+# Copy these files outside the AppImage mount to make them accessible to sudo.
+# There's an AppImage/FUSE limitation that prevents files located within an
+# AppImage mount from being accessible to sudo.  :(
+cp "lib/assets/hiddenvm.list" "${CLEARNET_VBOX_LIB_HOME}"
+cp "lib/never-ask-password.sh" "${CLEARNET_VBOX_LIB_HOME}"
 chmod +x "${CLEARNET_VBOX_LIB_HOME}/never-ask-password.sh"
-cp -r "${SCRIPT_HOME}/lib/assets" "${CLEARNET_VBOX_LIB_HOME}"
-
-# Function: Asks the user to select their HiddenVM home directory, pre-selecting
-# /media/amnesia. Note that this function sets the HVM_HOME variable!
-choose_hiddenvm_home_dir() {
-    info_box "HiddenVM" "You must now select your HiddenVM home folder. This should be inside an encrypted volume where you store all your VMs and related files."
-
-    CHOSEN_HVM_HOME=$(zenity --file-selection \
-        --directory --filename="/media/amnesia/" \
-        --title "Select your HiddenVM home folder" 2> /dev/null
-    )
-
-    # Append a hard-coded 'HiddenVM' subdir
-    CHOSEN_HVM_HOME="${CHOSEN_HVM_HOME}/HiddenVM"
-    mkdir -p "${CHOSEN_HVM_HOME}"
-
-    # If the chosen dir already has an env file, source it to pick up existing settings
-    if [ -f "${CHOSEN_HVM_HOME}/env" ]; then
-        . "${CHOSEN_HVM_HOME}/env"
-    fi
-
-    # Ensure HVM_HOME is set to what the user actually selected
-    HVM_HOME="${CHOSEN_HVM_HOME}"
-}
 
 # Override the "always ask for password" Tails sudo policy. First validate the
 # entered admin password, making the user retry until successful. Then override
@@ -114,6 +93,29 @@ sudo chmod 710 /media/amnesia
 sudo chmod 775 /media/amnesia/* || true # Ignore failures
 
 log "Process configuration, prog-id=4"
+
+# Function: Asks the user to select their HiddenVM home directory, pre-selecting
+# /media/amnesia. Note that this function sets the HVM_HOME variable!
+choose_hiddenvm_home_dir() {
+    info_box "HiddenVM" "You must now select your HiddenVM home folder. This should be inside an encrypted volume where you store all your VMs and related files."
+
+    CHOSEN_HVM_HOME=$(zenity --file-selection \
+        --directory --filename="/media/amnesia/" \
+        --title "Select your HiddenVM home folder" 2> /dev/null
+    )
+
+    # Append a hard-coded 'HiddenVM' subdir
+    CHOSEN_HVM_HOME="${CHOSEN_HVM_HOME}/HiddenVM"
+    mkdir -p "${CHOSEN_HVM_HOME}"
+
+    # If the chosen dir already has an env file, source it to pick up existing settings
+    if [ -f "${CHOSEN_HVM_HOME}/env" ]; then
+        . "${CHOSEN_HVM_HOME}/env"
+    fi
+
+    # Ensure HVM_HOME is set to what the user actually selected
+    HVM_HOME="${CHOSEN_HVM_HOME}"
+}
 
 # Expect an env file path from the first cmd line arg
 PROVIDED_ENV_FILE="${1:-}" # Default arg to empty
@@ -157,11 +159,11 @@ cp "${CLEARNET_VBOX_ENV_FILE}" "${HVM_HOME}/env"
 mkdir -p "${HVM_HOME}/logs"
 
 # Source the libraries we need
-. "${SCRIPT_HOME}/lib/system.sh"
-. "${SCRIPT_HOME}/lib/packages.sh"
-. "${SCRIPT_HOME}/lib/clearnet.sh"
-. "${SCRIPT_HOME}/lib/virtualbox.sh"
-. "${SCRIPT_HOME}/lib/extras-setup.sh"
+. "lib/system.sh"
+. "lib/packages.sh"
+. "lib/clearnet.sh"
+. "lib/virtualbox.sh"
+. "lib/extras-setup.sh"
 
 # Run setup steps in the proper order
 configure_system
@@ -212,7 +214,7 @@ back_up_apt_packages
 
 # Lastly, copy some resources to HVM_HOME
 log "Copy 'extras' to ${HVM_HOME}"
-cp -r "${SCRIPT_HOME}/extras" "${HVM_HOME}/"
+cp -r ./extras/ "${HVM_HOME}/"
 
 log "Done! Runtime: ${SECONDS}s, prog-id=25"
 

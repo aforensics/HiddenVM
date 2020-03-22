@@ -18,8 +18,8 @@
 
 set -e
 
-. "/home/amnesia/.clearnet-vbox/env"
 . "/home/amnesia/.clearnet-vbox/common.sh"
+. "${CLEARNET_VBOX_ENV_FILE}"
 
 enforce_amnesia
 

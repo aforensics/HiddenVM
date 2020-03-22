@@ -15,8 +15,13 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+
 set -e
 
+# Need HIDDENVM_SUDO_TIMEOUT_POLICY. Note that this script is intended to be
+# run with sudo, so we must include common.sh from outside the AppImage mount.
+# Otherwise this code will fail to execute due to permission issues caused by
+# an AppImage/FUSE limitation.
 . "/home/amnesia/.clearnet-vbox/common.sh"
 
 enforce_root

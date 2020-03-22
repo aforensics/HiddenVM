@@ -31,8 +31,7 @@ install_extra_apt_list() {
 
 install_dotfiles() {
     local DOTFILES_HOME="${EXTRAS_HOME}/dotfiles"
-    local DOTFILE_PROCESS_SCRIPT="${CLEARNET_VBOX_LIB_HOME}/process-dotfile.sh"
-    chmod +x "${DOTFILE_PROCESS_SCRIPT}"
+    local DOTFILE_PROCESS_SCRIPT="lib/process-dotfile.sh"
 
     if [ -d "${DOTFILES_HOME}" ]; then
         log "Processing dotfiles, prog-id=21"

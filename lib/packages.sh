@@ -32,7 +32,7 @@ VBOX_PACKAGE_NAME="virtualbox-6.1"
 
 # SourceList is to replace /etc/apt/sources.list
 # SourceParts=- is to disable /etc/apt/sources.list.d
-APT_OPTS_FOR_VBOX="-o Dir::Etc::SourceList=${CLEARNET_VBOX_LIB_HOME}/assets/hiddenvm.list -o Dir::Etc::SourceParts=-"
+APT_OPTS_FOR_VBOX="-o Dir::Etc::SourceList=${CLEARNET_VBOX_LIB_HOME}/hiddenvm.list -o Dir::Etc::SourceParts=-"
 
 update_package_list_for_vbox_or_restore_cache() {
     # Update + back up package indexes for linux-headers and vbox, or use the cache

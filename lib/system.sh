@@ -32,8 +32,10 @@ configure_system() {
 
     # Create Clearnet VirtualBox system launcher
     local LAUNCHER_FILE_NAME="clearnet-virtualbox.desktop"
-    local CLEARNET_VBOX_SYS_LAUNCHER="/usr/share/applications/${LAUNCHER_FILE_NAME}"
-    sudo cp "${CLEARNET_VBOX_LIB_HOME}/assets/${LAUNCHER_FILE_NAME}" "${CLEARNET_VBOX_SYS_LAUNCHER}"
+    # Copy to /tmp first because sudo can't access the file from within the AppImage mount
+    cp "lib/assets/${LAUNCHER_FILE_NAME}" /tmp/
+    sudo chown root:root "/tmp/${LAUNCHER_FILE_NAME}"
+    sudo mv "/tmp/${LAUNCHER_FILE_NAME}" /usr/share/applications/
 
     # Disable the Tails additional software apt hooks to stop notifications
     local TAILS_ADD_SOFTWARE_HOOK="/etc/apt/apt.conf.d/80tails-additional-software"
