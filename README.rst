@@ -51,8 +51,7 @@ Installation and usage
 How can I trust the HiddenVM AppImage file?
 -------------------------------------------
 
-You don't have to. Inspect the AppImage code:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**You don't have to. Inspect the AppImage code:**
 
 
 * 
@@ -67,8 +66,7 @@ You don't have to. Inspect the AppImage code:
 * 
   Once you trust the current version of HiddenVM, when new releases arrive you can track code changes by using `Meld <https://meldmerge.org>`_ (\ ``sudo apt install meld``\ ). Drag and drop the old and new folders together into *Meld*\ , and any code differences will be highlighted.
 
-Also you can check the integrity of our ZIP release file:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Also you can check the integrity of our ZIP release file:**
 
 
 * 
@@ -80,8 +78,7 @@ Also you can check the integrity of our ZIP release file:
 * 
   Do ``sha512sum -c HiddenVM-*-x86_64.sha512`` and it will check both the ZIP and the AppImage.
 
-Or generate your own AppImage from our source code once you trust it:
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Or generate your own AppImage from our source code once you trust it:**
 
 
 #. 
