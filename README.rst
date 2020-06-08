@@ -2,7 +2,9 @@
 HiddenVM
 ========
 .. contents::
-------------
+
+About
+----------------------
 
 **HiddenVM** is an innovation in computing privacy.
 
