@@ -40,7 +40,7 @@ Installation and usage
   Create and mount a deniable, secure storage environment on internal or external media such as a `VeraCrypt <https://veracrypt.fr/en>`_ volume.
 
 * 
-  **\ `Download our latest release ZIP <https://github.com/aforensics/HiddenVM/releases>`_\ ** and extract the archive.
+  \ `Download our latest release ZIP <https://github.com/aforensics/HiddenVM/releases>`_\  and extract the archive.
 
 * 
   Run our AppImage file in the Files browser.
