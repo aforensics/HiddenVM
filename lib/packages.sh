@@ -27,7 +27,7 @@ LAST_PKG_CACHE_PRUNE_DATE_FILE="${CACHE_DIR}/last-pkg-cache-prune"
 PKG_CACHE_PRUNE_FREQ_DAYS=7
 LAST_TAILS_VERSION_FILE="${CACHE_DIR}/last-tails-version"
 LINUX_HEADERS_PKG="linux-headers-$(uname -r)"
-LINUX_HEADERS_RELEASE="sid"
+LINUX_HEADERS_RELEASE="testing"
 VBOX_PACKAGE_NAME="virtualbox-6.1"
 
 # SourceList is to replace /etc/apt/sources.list
@@ -62,7 +62,7 @@ install_packages() {
     # Install VirtualBox (note that this will create the vboxusers group and
     # build/install the VirtualBox kernel drivers)
     log "Install VirtualBox, prog-id=11"
-    sudo apt-get -q -y ${APT_OPTS_FOR_VBOX} install ${VBOX_PACKAGE_NAME}
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -q -y ${APT_OPTS_FOR_VBOX} install ${VBOX_PACKAGE_NAME}
 }
 
 # If system packages were upgraded by linux-headers, the system may become unstable
@@ -169,6 +169,12 @@ should_apt_update_for_vbox() {
 }
 
 should_apt_update_for_other() {
+    local EXTRAS_SCRIPT="${HVM_HOME}/extras/extras.sh"
+    if [ ! -f "${EXTRAS_SCRIPT}" ]; then
+        log "Did not find 'extras' script - will not run 'apt-get update'"
+        return 1
+    fi
+
     should_apt_update "${APT_LIST_BACKUP_DIR_FOR_OTHER}" "${LAST_APT_UPDATE_DATE_FILE_FOR_OTHER}"
 }
 
