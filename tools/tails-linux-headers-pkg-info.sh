@@ -58,7 +58,7 @@ MATCHING_RELEASE=""
 for RELEASE in ${TAILS_DEB_STABLE_RELEASE} testing sid experimental oldstable oldoldstable; do
     echo
     echo "Processing '${RELEASE}'"
-    echo "deb [check-valid-until=no] tor+http://snapshot.debian.org/archive/debian/${PKG_FIRST_SEEN}/ ${RELEASE} main" > "${TMP_SRC_LIST}"
+    echo "deb [check-valid-until=no] tor+https://snapshot.debian.org/archive/debian/${PKG_FIRST_SEEN}/ ${RELEASE} main" > "${TMP_SRC_LIST}"
 
     sudo apt-get -y -q -o Acquire::Check-Valid-Until=false --no-list-cleanup \
         -o Dir::Etc::SourceList=${TMP_SRC_LIST} -o Dir::Etc::SourceParts=- \
@@ -81,7 +81,7 @@ if [ -n "${MATCHING_RELEASE}" ]; then
     echo
 
     for RELEASE in ${TAILS_DEB_STABLE_RELEASE} ${MATCHING_RELEASE}; do
-        echo "deb [check-valid-until=no] tor+http://snapshot.debian.org/archive/debian/${PKG_FIRST_SEEN}/ ${RELEASE} main contrib"
+        echo "deb [check-valid-until=no] tor+https://snapshot.debian.org/archive/debian/${PKG_FIRST_SEEN}/ ${RELEASE} main contrib"
     done
 else
     echo "No release found for ${LINUX_HEADERS}"
