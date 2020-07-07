@@ -64,7 +64,7 @@ install_vbox_ext_pack() {
     local VBOX_EXT_PACK_FILE="Oracle_VM_VirtualBox_Extension_Pack-${VBOX_VERSION}.vbox-extpack"
     mkdir -p "${HVM_HOME}/downloads"
     local VBOX_EXT_PACK_FILE_LOCAL="${HVM_HOME}/downloads/${VBOX_EXT_PACK_FILE}"
-    local VBOX_EXT_PACK_URL="http://download.virtualbox.org/virtualbox/${VBOX_VERSION}/${VBOX_EXT_PACK_FILE}"
+    local VBOX_EXT_PACK_URL="https://download.virtualbox.org/virtualbox/${VBOX_VERSION}/${VBOX_EXT_PACK_FILE}"
 
     # Only download if we don't already have the file cached
     if [ ! -f "${VBOX_EXT_PACK_FILE_LOCAL}" ]; then
