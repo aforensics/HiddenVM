@@ -35,8 +35,15 @@ setup_clearnet() {
 
     # Add the clearnet user to the following groups:
     #   video:     VirtualBox needs access to OpenGL drivers
+    #   audio:     VirtualBox needs access to the sound card via PulseAudio in Tails
     #   vboxusers: Created by the VirtualBox installation, allows USB access 
-    sudo usermod -a -G video,vboxusers clearnet
+    sudo usermod -a -G video,audio,vboxusers clearnet
+
+    # restart amnesia's pulseaudio server first, otherwise we get an error trying to start pulseaudio for clearnet below
+    systemctl --user restart pulseaudio
+    # start a pulseaudio server for clearnet to allow VirtualBox VMs to send sound through to Tails
+    # (exit-idle-time=-1 prevents the pulseaudio daemon from exiting after the VMs are shut down)
+    sudo -u clearnet pulseaudio --start --exit-idle-time=-1 --high-priority
 
     # Set up sudo access to execute the clearnet vbox launcher as the clearnet user,
     # so that we can launch vbox from bootstrap without authenticating again.
