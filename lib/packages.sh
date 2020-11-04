@@ -339,7 +339,7 @@ get_installed_pkgs_name_version_csv() {
     # tail: skip first line (apt prints "Listing...")
     # cut:  separate beginning of string (contains the package name) from the version
     # sed:  clean up to package name and add a comma to separate it from the version
-    apt list --installed \
+    sudo apt list --installed \
         2>/dev/null | \
         tail -n +2 | \
         cut -d' ' -f 1,2 | \
