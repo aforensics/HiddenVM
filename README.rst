@@ -29,6 +29,21 @@ HiddenVM: *insanely private!*
 Installation and usage
 ----------------------
 
+**Before you install:**
+
+* 
+  Always have two Tails USB sticks, with one as a backup of the latest working Tails for your current HiddenVM.
+
+* 
+  Always upgrade Tails on your second stick, in case the new Tails doesn't work with your current HiddenVM.
+
+*
+  Always give us time to troubleshoot and fix our code to make it work with a new Tails version. Thank you for your patience.
+
+*
+  This will give you stability and prevent you from being locked out of your HiddenVM at any point due to a Tails upgrade.
+
+**Install:**
 
 * 
   Boot into `Tails <https://tails.boum.org>`_ on your computer and set an `admin password <https://tails.boum.org/doc/first_steps/startup_options/administration_password/index.en.html>`_ for your session.
@@ -48,8 +63,10 @@ Installation and usage
 * 
   Choose to store HiddenVM in your secure storage and it will download all binaries to launch VirtualBox.
 
+**Usage:**
+
 * 
-  After first-time install you can then use HiddenVM offline where each AppImage launch takes about 2 minutes.
+  After initially installing HiddenVM you can use it offline where each VirtualBox launch takes about 2 minutes.
 
 How can I trust the HiddenVM AppImage file?
 -------------------------------------------
