@@ -1,6 +1,14 @@
-========
-HiddenVM
-========
+|foo|
+
+.. |foo| raw:: html
+
+    <a href="#About"><img src="./misc/hiddenvm-logo-full.svg" width="100%" height="184pt"></a>
+    <p align="center"><a href="#About"><img src="https://dummyimage.com/1x45/ffffff/ffffff.png" /></a> <a href="#About"><img src="https://img.shields.io/github/v/release/aforensics/HiddenVM.svg?color=%2344cc11ff&label=version" /></a>&nbsp; <a href="#About"><img src="https://camo.githubusercontent.com/bf135a9cea09d0ea4bba410582c0e70ec8222736/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c6963656e73652d47504c25323076332d626c75652e737667" /></a>&nbsp; <a href="#About"><img src="https://img.shields.io/github/downloads/aforensics/HiddenVM/total?color=%236b2981" /></a>&nbsp; <a href="#About"><img src="https://img.shields.io/github/stars/aforensics/HiddenVM.svg?label=github%20stars" /></a> <a href="#About"><img src="https://dummyimage.com/1x45/ffffff/ffffff.png" /></a></p>
+
+.. raw:: html
+
+    <h2><a href="#About">HiddenVM</a></h2>
+    
 .. contents::
 
 About
