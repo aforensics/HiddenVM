@@ -9,8 +9,6 @@
 
     <h2><a href="#About">HiddenVM</a></h2>
 
-**Emergency fix for Whonix users if you receive an error preventing VM from booting since VirtualBox 6.1.20 update on 2021-04-20: In each affected VM (Settings > Storage) change 'Type' to e.g. 'AHCI'. VM will then boot as normal. No idea on the security implications of choosing a different controller type from default SAS choice by Whonix project. Ongoing situation. We prefer you by default to have the latest VirtualBox vs. the most recent version Whonix advises for their OVA. Whonix on Tails is by no means the only use case of HiddenVM, and OSes observed to be unaffected in VirtualBox 6.1.20 include Windows, macOS and Ubuntu.**
-
 .. contents::
 
 About
