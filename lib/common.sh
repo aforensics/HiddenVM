@@ -22,6 +22,8 @@ CLEARNET_VBOX_LIB_HOME="/home/amnesia/.clearnet-vbox"
 CLEARNET_VBOX_ENV_FILE="${CLEARNET_VBOX_LIB_HOME}/env"
 CLEARNET_HVM_MOUNT="/home/clearnet/HiddenVM"
 HIDDENVM_SUDO_TIMEOUT_POLICY="/etc/sudoers.d/zzzzzzzzzz-hiddenvm-02-never-ask-password"
+HVM_ICON_COLOR="lib/assets/hiddenvm-icon-color.png"
+export HVM_ICON_COLOR
 
 # Logs a message in a standardized format to stdout
 # $1 The message to log
@@ -66,11 +68,13 @@ enforce_root() {
 # $1: Type (error, info, warning)
 # $2: Title
 # $3: Message
+# $4: Window title (for GNOME application switcher)
 msg_box() {
     local TYPE="${1}"
     local TITLE="${2}"
     local MSG="${3}"
-    zenity --width 400 --${TYPE} --title "${TITLE}" --text "${MSG}" > /dev/null 2>&1 \
+    local WINDOW_NAME="${4}"
+    zenity --window-icon=${HVM_ICON_COLOR} --width 400 --${TYPE} --title "${TITLE}" --text "${MSG}" --class="${WINDOW_NAME}" > /dev/null 2>&1 \
         || true # Ignore failure (user dismisses without clicking OK)
     return 0
 }
@@ -78,22 +82,25 @@ msg_box() {
 # Displays an info GUI message box
 # $1: Title
 # $2: Message
+# $3: Window title
 info_box() {
-    msg_box "info" "${1}" "${2}"
+    msg_box "info" "${1}" "${2}" "${3}"
 }
 
 # Displays an error GUI message box
 # $1: Title
 # $2: Message
+# $3: Window title
 error_box() {
-    msg_box "error" "${1}" "${2}"
+    msg_box "error" "${1}" "${2}" "${3}"
 }
 
 # Displays a warning GUI message box
 # $1: Title
 # $2: Message
+# $3: Window title
 warn_box() {
-    msg_box "warning" "${1}" "${2}"
+    msg_box "warning" "${1}" "${2}" "${3}"
 }
 
 get_tails_version() {
