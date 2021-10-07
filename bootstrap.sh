@@ -48,7 +48,7 @@ if ! is_tails_version_supported "./SUPPORTED_TAILS_VERSIONS"; then
     CUR_TAILS_VERSION=$(get_tails_version)
 
     log "WARNING: HiddenVM v${HVM_VERSION_FROM_VERSION_FILE} might not be compatible with your version of Tails (${CUR_TAILS_VERSION}). The installation may fail."
-    zenity --width 400 --question --title "HiddenVM" --text "HiddenVM v${HVM_VERSION_FROM_VERSION_FILE} might not be compatible with your version of Tails (${CUR_TAILS_VERSION}).\n\nPlease visit <a href='https://github.com/aforensics/HiddenVM'>https://github.com/aforensics/HiddenVM</a> for more information.\n\nThe installation may fail. Do you want to continue?" > /dev/null 2>&1
+    zenity --class="Warning" --window-icon=${HVM_ICON_COLOR} --width 400 --question --title "HiddenVM" --text "HiddenVM v${HVM_VERSION_FROM_VERSION_FILE} might not be compatible with your version of Tails (${CUR_TAILS_VERSION}).\n\nPlease visit <a href='https://github.com/aforensics/HiddenVM'>https://github.com/aforensics/HiddenVM</a> for more information.\n\nThe installation may fail. Do you want to continue?" > /dev/null 2>&1
 fi
 
 # Make sure the CLEARNET_VBOX_LIB_HOME directory exists and is clean
@@ -78,7 +78,8 @@ chmod +x "${CLEARNET_VBOX_LIB_HOME}/never-ask-password.sh"
 while :
 do
     sudo -K # clear credentials cache to force authentication
-    ADMIN_PASS=$(zenity --password --title "Admin password needed" 2>/dev/null)
+    ADMIN_PASS=$(zenity --class="Attention" --password --title "Admin password needed" 2>/dev/null)
+    # Note: Not all Zenity dialog types (e.g. password, file-selection) allow custom --window-icon to be set (bug report #998491)
     echo "${ADMIN_PASS}" | sudo -S -v > /dev/null 2>&1 && break
 done
 echo "${ADMIN_PASS}" | sudo -S "${CLEARNET_VBOX_LIB_HOME}/never-ask-password.sh"
@@ -98,9 +99,9 @@ log "Process configuration, prog-id=4"
 # Function: Asks the user to select their HiddenVM home directory, pre-selecting
 # /media/amnesia. Note that this function sets the HVM_HOME variable!
 choose_hiddenvm_home_dir() {
-    info_box "HiddenVM" "You must now select your HiddenVM home folder. This should be inside an encrypted volume where you store all your VMs and related files."
+    info_box "HiddenVM" "You must now select your HiddenVM home folder. This should be inside an encrypted volume where you store all your VMs and related files." "Attention"
 
-    CHOSEN_HVM_HOME=$(zenity --file-selection \
+    CHOSEN_HVM_HOME=$(zenity --class="Attention" --file-selection \
         --directory --filename="/media/amnesia/" \
         --title "Select your HiddenVM home folder" 2> /dev/null
     )
@@ -137,7 +138,7 @@ else
 fi
 
 if [ -z "${INSTALL_WARN:-}" ]; then
-    INSTALL_WARN=$(zenity --list --hide-header --title "HiddenVM" \
+    INSTALL_WARN=$(zenity --class="Warning" --window-icon=${HVM_ICON_COLOR} --list --hide-header --title "HiddenVM" \
         --text "HiddenVM is about to be installed. <b><u>Do NOT use the system until VirtualBox has launched\!</u></b>\n\nTo prevent a crash and potential data loss, you should wait until the installation\ncompletes before continuing to use Tails. Click OK to proceed." \
         --checklist  --column "checkbox" --column "option" FALSE "Don't show this again" 2>/dev/null
     )
