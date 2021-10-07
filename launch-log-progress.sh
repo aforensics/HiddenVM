@@ -48,11 +48,10 @@ filter_and_transform_logs_for_progress() {
 # - Log line transformation and eventually the Zenity progress dialog (pipes)
 exec &> >(tee >(tee "${LOG_FILE}" | \
     filter_and_transform_logs_for_progress | \
-    zenity --width 400 --title "HiddenVM" --progress --no-cancel --auto-close 2>/dev/null
+    zenity --class="HiddenVM" --window-icon=${HVM_ICON_COLOR} --width 400 --title "HiddenVM" --progress --no-cancel --auto-close 2>/dev/null
 ))
 
-
-# We need HIDDENVM_SUDO_TIMEOUT_POLICY
+# Source some common variables
 . "lib/common.sh"
 # Unset these, which were set by common.sh. We don't want
 # a failure in bootstrap.sh to terminate this process.
@@ -76,7 +75,7 @@ if ./bootstrap.sh "${ENV_FILE}"; then
 else
     reset_sudo_timeout_policy
     # Let zenity take over this process
-    exec zenity --width 400 --error --title "HiddenVM" \
+    exec zenity --class="Error" --window-icon=${HVM_ICON_COLOR} --width 400 --error --title "HiddenVM" \
         --text "The installation did not complete! Check the log file for details." \
         >/dev/null 2>&1
 fi
