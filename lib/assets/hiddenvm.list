@@ -1,6 +1,8 @@
-# Snapshot archive sources for the currently supported Tails version
-deb [check-valid-until=no] tor+https://snapshot.debian.org/archive/debian/20210728T144118Z/ buster main contrib
-deb [check-valid-until=no] tor+https://snapshot.debian.org/archive/debian/20210728T144118Z/ sid main contrib
+# Snapshot archive sources for required packages installed by HiddenVM. Compatible with currently supported Tails version.
+# Currently, 'buster' (stable) is adequate for most packages. Linux-headers may use a more cutting edge source (catered to below).
+ 
+deb [check-valid-until=no] tor+https://snapshot.debian.org/archive/debian/20211014T024336Z/ buster main contrib
+deb [check-valid-until=no] tor+https://snapshot.debian.org/archive/debian/20211014T024336Z/ bullseye main contrib
 
-# VirtualBox (release should match whatever Tails is using)
+# VirtualBox (Debian release stream should match whatever Tails is using)
 deb [trusted=yes] tor+https://download.virtualbox.org/virtualbox/debian buster contrib
