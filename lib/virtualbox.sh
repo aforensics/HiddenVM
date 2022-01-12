@@ -75,7 +75,7 @@ install_vbox_ext_pack() {
             return
         fi
 
-        curl ${VBOX_EXT_PACK_URL} --socks5 localhost:9150 -o "${VBOX_EXT_PACK_FILE_LOCAL}"
+        torsocks curl ${VBOX_EXT_PACK_URL} -o "${VBOX_EXT_PACK_FILE_LOCAL}"
         log "Done downloading VirtualBox Extension Pack v${VBOX_VERSION}"
     fi
     
