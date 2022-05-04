@@ -86,7 +86,7 @@ SERVER_APP_ID="hidden.vm.id"
 while
     gnome-terminal --app-id "${SERVER_APP_ID}" --working-directory "${HERE}" -- \
         bash -c "./launch-log-progress.sh \"${ENV_FILE_ARG}\" \"${LOG_FILE}\"" 2>&1 | \
-        grep Error
+        grep "Error creating terminal"
 do
     error "gnome-terminal-server '${SERVER_APP_ID}' is not ready, trying again..."
     sleep 1
