@@ -37,7 +37,7 @@ configure_system() {
     sudo chown root:root "/tmp/${LAUNCHER_FILE_NAME}"
     sudo mv "/tmp/${LAUNCHER_FILE_NAME}" /usr/share/applications/
     mkdir -p /home/amnesia/.local/share/icons
-    cp "lib/assets/hiddenvm-icon-color.png" /home/amnesia/.local/share/icons/
+    cp "lib/assets/hiddenvm-icon-color.svg" /home/amnesia/.local/share/icons/
     cp "lib/assets/hiddenvm-icon-notification.svg" /home/amnesia/.local/share/icons/
 
     # Disable the Tails additional software apt hooks to stop notifications
