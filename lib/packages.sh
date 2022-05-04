@@ -27,7 +27,7 @@ LAST_PKG_CACHE_PRUNE_DATE_FILE="${CACHE_DIR}/last-pkg-cache-prune"
 PKG_CACHE_PRUNE_FREQ_DAYS=7
 LAST_TAILS_VERSION_FILE="${CACHE_DIR}/last-tails-version"
 LINUX_HEADERS_PKG="linux-headers-$(uname -r)"
-LINUX_HEADERS_RELEASE="bullseye" # In the past it has usually been "buster-backports" or "sid"
+LINUX_HEADERS_RELEASE="bullseye" # In the past it has been "sid", "bullseye", or "buster-backports"
 VBOX_PACKAGE_NAME="virtualbox-6.1"
 
 # SourceList is to replace /etc/apt/sources.list
