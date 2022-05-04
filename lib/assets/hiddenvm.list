@@ -1,8 +1,7 @@
-# Snapshot archive sources for required packages installed directly by HiddenVM. Compatible with the supported Tails version.
-# Currently, 'buster' (stable) is adequate for most packages. Linux-headers may use a more cutting edge source, catered to below.
+# APT snapshots for required packages installed directly by HiddenVM. Compatible with the currently supported Tails version.
+# Currently, 'bullseye' (stable) is adequate for most packages. Linux-headers may use a more cutting edge source, catered to when needed.
 
-deb [check-valid-until=no] tor+https://snapshot.debian.org/archive/debian/20220405T153550Z/ buster main contrib
-deb [check-valid-until=no] tor+https://snapshot.debian.org/archive/debian/20220405T153550Z/ bullseye main contrib
+deb [check-valid-until=no] tor+https://snapshot.debian.org/archive/debian/20220502T032918Z/ bullseye main contrib
 
-# VirtualBox (Debian release stream should match whatever Tails is using)
-deb [trusted=yes] tor+https://download.virtualbox.org/virtualbox/debian buster contrib
+# VirtualBox (Debian release should match what Tails is)
+deb [trusted=yes] tor+https://download.virtualbox.org/virtualbox/debian bullseye contrib
