@@ -78,7 +78,7 @@ fi
 # terminal server and open a client terminal on it.
 
 SERVER_APP_ID="hidden.vm.id"
-/usr/lib/gnome-terminal/gnome-terminal-server --app-id "${SERVER_APP_ID}" &
+/usr/libexec/gnome-terminal-server --app-id "${SERVER_APP_ID}" &
 
 # Try to launch a terminal on the server. We have 10s before the server goes
 # away! The server may take some time to come up, so we have to retry on error.
