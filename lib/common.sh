@@ -22,7 +22,7 @@ CLEARNET_VBOX_LIB_HOME="/home/amnesia/.clearnet-vbox"
 CLEARNET_VBOX_ENV_FILE="${CLEARNET_VBOX_LIB_HOME}/env"
 CLEARNET_HVM_MOUNT="/home/clearnet/HiddenVM"
 HIDDENVM_SUDO_TIMEOUT_POLICY="/etc/sudoers.d/zzzzzzzzzz-hiddenvm-02-never-ask-password"
-HVM_ICON_COLOR="lib/assets/hiddenvm-icon-color.png"
+HVM_ICON_COLOR="lib/assets/hiddenvm-icon-color.svg"
 export HVM_ICON_COLOR
 
 # Logs a message in a standardized format to stdout
