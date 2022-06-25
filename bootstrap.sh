@@ -48,7 +48,7 @@ if ! is_tails_version_supported "./SUPPORTED_TAILS_VERSIONS"; then
     CUR_TAILS_VERSION=$(get_tails_version)
 
     log "WARNING: HiddenVM v${HVM_VERSION_FROM_VERSION_FILE} might not be compatible with your version of Tails (${CUR_TAILS_VERSION}). The installation may fail."
-    zenity --class="Warning" --window-icon=${HVM_ICON_COLOR} --width 400 --question --title "HiddenVM" --text "HiddenVM v${HVM_VERSION_FROM_VERSION_FILE} might not be compatible with your version of Tails (${CUR_TAILS_VERSION}).\n\nPlease visit <a href='https://github.com/aforensics/HiddenVM'>https://github.com/aforensics/HiddenVM</a> for more information.\n\nThe installation may fail. Do you want to continue?" > /dev/null 2>&1
+    zenity --class="Warning" --window-icon=${HVM_ICON_COLOR} --width 400 --question --title "HiddenVM" --text "HiddenVM v${HVM_VERSION_FROM_VERSION_FILE} might not be compatible with your version of Tails (${CUR_TAILS_VERSION}).\n\nPlease visit <a href='https://github.com/aforensics/HiddenVM'>https://github.com/aforensics/HiddenVM</a> for more information. Tails emergency releases can take us by surprise. Please be patient if a new version has not yet been released.\n\nThis installation could fail. Do you want to continue?" > /dev/null 2>&1
 fi
 
 # Make sure the CLEARNET_VBOX_LIB_HOME directory exists and is clean
