@@ -1,8 +1,8 @@
 # APT snapshots for required packages installed directly by HiddenVM. Compatible with the currently supported Tails version.
 # Currently, 'bullseye' (stable) is adequate for most packages. Linux-headers may use a more cutting edge source, catered to when needed.
 
-deb [check-valid-until=no] tor+https://snapshot.debian.org/archive/debian/20230124T184127Z/ bullseye main contrib
-deb [check-valid-until=no] tor+https://snapshot.debian.org/archive/debian/20230124T184127Z/ bullseye-backports main contrib
+deb [check-valid-until=no] tor+https://snapshot.debian.org/archive/debian/20230215T210953Z/ bullseye main contrib
+deb [check-valid-until=no] tor+https://snapshot.debian.org/archive/debian/20230215T210953Z/ sid main contrib
 
 # VirtualBox (Debian release should match what Tails is)
 deb [trusted=yes] tor+https://download.virtualbox.org/virtualbox/debian bullseye contrib
