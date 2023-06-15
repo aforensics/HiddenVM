@@ -9,6 +9,8 @@
 
     <h2><a href="#About">HiddenVM</a></h2>
 
+**PLEASE NOTE: If at any time Tails pushes an unexpected update and HiddenVM is not yet updated for it, and you are 'stuck' with the new Tails and no working HiddenVM version, you can re-download and temporarily use an earlier version of Tails until HiddenVM is updated here. There are archived official torrents of Tails images with PGP signatures at https://web.archive.org/https://tails.boum.org/torrents/files/ (or linuxtracker.org or fosstorrents.com etc. but always verify third party torrents with the archived official PGP sigs for safety). Unless there is a known security vulnerability patched in the new Tails which affects how you use it, doing a temporary downgrade is not unsafe, because you aren't suddenly unsafe by merely using one-month-old Tails software for a short while. Thank you for your patience, and always stay safe.**
+
 .. contents::
 
 About
