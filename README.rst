@@ -153,6 +153,11 @@ Every 7 days, if you're connected to the Internet HiddenVM will do an ``apt-get`
 
 Every time you do a Tails and HiddenVM upgrade, the first time after this will almost always need to install new package versions, thus taking around 5 minutes or longer. Then it returns to the usual 2 minutes.
 
+I'm getting a "Connection timed out", HiddenVM fails! What to do?
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+See `here <https://github.com/aforensics/HiddenVM/issues/34>`_. It's the current Tor circuit failing. Simply close off HiddenVM and try again, or try other options in the linked issue.
+
 Can I use HiddenVM offline?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -162,7 +167,7 @@ We can't guarantee this, but limited testing by the team has confirmed it being 
 
 As soon as you connect to the Internet, HiddenVM may upgrade its cached software and you may have to upgrade to the latest version from our GitHub as well as your Tails, but after all software is updated and verified as in sync by HiddenVM, it could be possible to use it offline for an extended period again.
 
-Known limitations:
+Known limitations
 ^^^^^^^^^^^^^^^^^^
 
 
