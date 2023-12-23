@@ -27,12 +27,12 @@ LAST_PKG_CACHE_PRUNE_DATE_FILE="${CACHE_DIR}/last-pkg-cache-prune"
 PKG_CACHE_PRUNE_FREQ_DAYS=7
 LAST_TAILS_VERSION_FILE="${CACHE_DIR}/last-tails-version"
 LINUX_HEADERS_PKG="linux-headers-$(uname -r)"
-LINUX_HEADERS_RELEASE="bookworm" # In the past it has been "sid", "bullseye", or "buster-backports"
+LINUX_HEADERS_RELEASE="sid" # In the past it has been "bookworm", "bullseye", "buster-backports", etc.
 VBOX_PACKAGE_NAME="virtualbox-7.0"
 
 # SourceList is to replace /etc/apt/sources.list
 # SourceParts=- is to disable /etc/apt/sources.list.d
-APT_OPTS_FOR_VBOX="-o Dir::Etc::SourceList=${CLEARNET_VBOX_LIB_HOME}/hiddenvm.list -o Dir::Etc::SourceParts=-"
+APT_OPTS_FOR_VBOX="-o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confold -o Dir::Etc::SourceList=${CLEARNET_VBOX_LIB_HOME}/hiddenvm.list -o Dir::Etc::SourceParts=-"
 
 update_package_list_for_vbox_or_restore_cache() {
     # Update + back up package indexes for linux-headers and vbox, or use the cache
