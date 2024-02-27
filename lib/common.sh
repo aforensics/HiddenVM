@@ -104,7 +104,7 @@ warn_box() {
 }
 
 get_tails_version() {
-    tails-version | head -1
+    cat /etc/os-release | grep "VERSION" | cut -d '"' -f2
 }
 
 # $1 "Supported versions" file, one version string per line
