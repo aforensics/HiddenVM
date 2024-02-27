@@ -87,12 +87,17 @@ echo "${ADMIN_PASS}" | sudo -S -v > /dev/null 2>&1
 
 # Give ownership of the amnesia mounts to the amnesia user+group and relax the permissions.
 # For example, new Veracrypt volume mounts are initially owned by root:root.
-log "Set up permissions on amnesia mounts, prog-id=3"
+log "Set up permissions on amnesia mounts and clearnet user environment, prog-id=3"
 sudo mkdir -p /media/amnesia
 sudo chown amnesia:amnesia /media/amnesia
 sudo chmod 710 /media/amnesia
 sudo chown amnesia:amnesia /media/amnesia/* || true # Ignore failures
 sudo chmod 775 /media/amnesia/* || true # Ignore failures
+
+# Recreate classic clearnet user environmental conditions not present by default since Tails 6.x
+sudo mkdir -p /home/clearnet/
+sudo chown clearnet:clearnet /home/clearnet/
+sudo usermod --home /home/clearnet clearnet
 
 log "Process configuration, prog-id=4"
 
