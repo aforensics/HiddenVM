@@ -39,11 +39,14 @@ setup_clearnet() {
     #   vboxusers: Created by the VirtualBox installation, allows USB access 
     sudo usermod -a -G video,audio,vboxusers clearnet
 
+    # No easy solution found for audio so far. Below commented out but kept for reference.
     # restart amnesia's pulseaudio server first, otherwise we get an error trying to start pulseaudio for clearnet below
-    systemctl --user restart pulseaudio
+    # systemctl --user restart pulseaudio
+    # systemctl --user restart pipewire pipewire-pulse
     # start a pulseaudio server for clearnet to allow VirtualBox VMs to send sound through to Tails
     # (exit-idle-time=-1 prevents the pulseaudio daemon from exiting after the VMs are shut down)
-    sudo -u clearnet pulseaudio --start --exit-idle-time=-1 --high-priority
+    # sudo -u clearnet pulseaudio --start --exit-idle-time=-1 --high-priority
+    # sudo -u clearnet pipewire-pulse
 
     # Set up sudo access to execute the clearnet vbox launcher as the clearnet user,
     # so that we can launch vbox from bootstrap without authenticating again.
